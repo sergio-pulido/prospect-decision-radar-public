@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+runs/*
+!runs/.gitkeep
+.DS_Store
+profiles/private/
+docs/demo/raw/
+profiles/private/

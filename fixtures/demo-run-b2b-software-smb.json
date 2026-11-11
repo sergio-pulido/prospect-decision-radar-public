@@ -1,0 +1,3662 @@
+{
+ "id": "example-b2b-software-smb",
+ "startedAt": "2026-11-11T06:51:32.116Z",
+ "finishedAt": "2026-11-11T06:51:48.332Z",
+ "input": {
+  "profileId": "b2b-software-smb",
+  "discovery": "both",
+  "limit": 8,
+  "fixturesOnly": false,
+  "profileOverride": {
+   "cities": [
+    "Barcelona"
+   ],
+   "sizeRange": {
+    "min": 3,
+    "max": 50
+   }
+  }
+ },
+ "profile": {
+  "id": "b2b-software-smb",
+  "name": "B2B software for SMBs",
+  "reviewThreshold": 0.55
+ },
+ "providers": {
+  "jev": "live",
+  "linkup": "live",
+  "cala": "live"
+ },
+ "counts": {
+  "discovered": 6,
+  "passedGate1": 5,
+  "researched": 4,
+  "actioned": 3,
+  "review": 1,
+  "dropped": 1,
+  "errors": 1
+ },
+ "results": [
+  {
+   "stage": "dropped_gate1",
+   "gate2": [],
+   "gate1": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "no_fit",
+    "probability": 0.94,
+    "probabilities": {
+     "fit": 0.05,
+     "no_fit": 0.94,
+     "unknown": 0.01
+    }
+   },
+   "company": {
+    "name": "Amenitiz",
+    "website": "amenitiz.com",
+    "city": "Barcelona",
+    "country": "Spain",
+    "employees": 280,
+    "sector": "Travel tech / SaaS",
+    "description": "Provides software-as-a-service solutions for travel and hospitality businesses; the available information reports $83.2 million in funding as of September 2026, but does not establish its headcount or a recent funding event within the last 12 months.",
+    "discoveredBy": "linkup",
+    "foundBy": [
+     "linkup"
+    ],
+    "employeesSource": "apollo",
+    "sources": [
+     {
+      "name": "List of 55 Travel and Hospitality SaaS Startups in Barcelona, Spain & Market Trends (Sep 2026) - Tracxn",
+      "url": "https://tracxn.com/d/explore/travel-and-hospitality-saas-startups-in-barcelona-spain/__pd61S0Qh_0rvgbSQQgAHUjB88PgX5SnTOmFwb3W1VtE",
+      "favicon": "https://favicons.linkup.so?domain=tracxn.com"
+     }
+    ]
+   },
+   "traces": {
+    "gate1": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 640,
+      "output_tokens": 41,
+      "cost": 0.00002688,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.00002688,
+       "upstream_inference_prompt_cost": 0.00002688,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 481,
+     "at": "2026-11-11T06:51:35.371Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    }
+   }
+  },
+  {
+   "stage": "actioned",
+   "gate2": [
+    {
+     "questionId": "funding_recent",
+     "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "hiring_in_target_cities",
+     "question": "According to the evidence, is the company hiring in one of the target cities?",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "new_product_or_market",
+     "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+     "choice": "no",
+     "probability": 0.96,
+     "probabilities": {
+      "yes": 0.03,
+      "no": 0.96,
+      "unknown": 0.01
+     }
+    },
+    {
+     "questionId": "leadership_change",
+     "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+     "choice": "no",
+     "probability": 0.97,
+     "probabilities": {
+      "yes": 0,
+      "no": 0.97,
+      "unknown": 0.03
+     }
+    },
+    {
+     "questionId": "headcount_growing_12m",
+     "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+     "choice": "no",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 1,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "headcount_in_range",
+     "question": "According to the evidence, does the company have between 3 and 50 employees?",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    }
+   ],
+   "gate1": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "fit",
+    "probability": 0.99,
+    "probabilities": {
+     "fit": 0.99,
+     "no_fit": 0,
+     "unknown": 0.01
+    }
+   },
+   "signalStrength": "weak",
+   "action": {
+    "questionId": "next_action",
+    "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+    "choice": "call_now",
+    "probability": 0.8,
+    "probabilities": {
+     "discard": 0,
+     "call_now": 0.8,
+     "send_email": 0.07,
+     "linkedin_touch": 0.13,
+     "nurture": 0
+    }
+   },
+   "finalAction": "call_now",
+   "draft": "CALL NOTES: Zazume\nWhy now:\n- €2.5 million funding round, announced June 2, 2026; sources differ on whether it was Series A or a bridge round. [EU-Startups](https://www.eu-startups.com/2026/06/barcelonas-zazume-raises-e2-5-million-to-scale-its-ai-powered-rental-management-platform/); [Scaling Europe](https://scalingeurope.co.uk/dispatches/funding-zazume-2-5-million).\n- Barcelona hiring reported for Sales Specialist (Real Estate – Alquileres; posted September 6, 2026) and Commercial Operations Specialist (Alquileres; posted September 2, 2026). A company LinkedIn post also advertised an in-house design role in Barcelona, but the supplied information does not show its posting date. [Crustdata](https://profiles.crustdata.com/company/zazume); [LinkedIn](https://es.linkedin.com/company/zazume).\nOpening line: \"We saw that Zazume is moving in Barcelona. We offer B2B software that automates finance, HR and sales operations for small and mid-sized companies, and teams in your situation usually need it now rather than in six months.\"\nAsk: what is changing for the team in Barcelona this quarter, and who decides on it.",
+   "company": {
+    "name": "Zazume",
+    "website": "zazume.com",
+    "city": "Barcelona",
+    "employees": 44,
+    "sector": "Fintech / PropTech (SaaS)",
+    "discoveredBy": "cala",
+    "foundBy": [
+     "cala"
+    ],
+    "employeesSource": "apollo"
+   },
+   "evidence": {
+    "mode": "live",
+    "fields": {
+     "funding_last_12_months": "€2.5 million funding round, announced June 2, 2026; sources differ on whether it was Series A or a bridge round. [EU-Startups](https://www.eu-startups.com/2026/06/barcelonas-zazume-raises-e2-5-million-to-scale-its-ai-powered-rental-management-platform/); [Scaling Europe](https://scalingeurope.co.uk/dispatches/funding-zazume-2-5-million).",
+     "hiring_in_target_cities": "Barcelona hiring reported for Sales Specialist (Real Estate – Alquileres; posted September 6, 2026) and Commercial Operations Specialist (Alquileres; posted September 2, 2026). A company LinkedIn post also advertised an in-house design role in Barcelona, but the supplied information does not show its posting date. [Crustdata](https://profiles.crustdata.com/company/zazume); [LinkedIn](https://es.linkedin.com/company/zazume).",
+     "new_product_or_market": "No new product launch or entry into a new country in the last 12 months was found in the supplied sources. Zazume did acquire Landa Propiedades’ rental portfolio in Zaragoza in April 2026, expanding its Spanish portfolio; this is an acquisition, not evidence of entry into a new country. [Zazume blog](https://www.zazume.com/en/blog/categoria/actualidad-inmobiliaria).",
+     "leadership_change": "No qualifying company-level leadership change in the last 12 months was found in the supplied sources.",
+     "headcount": "Approximately 41 employees (September 2026 estimate); LinkedIn lists 44. [Crustdata](https://profiles.crustdata.com/company/zazume); [LinkedIn](https://es.linkedin.com/company/zazume)."
+    },
+    "sources": [
+     {
+      "name": "Actualidad Inmobiliaria - Blog - Zazume",
+      "url": "https://www.zazume.com/en/blog/categoria/actualidad-inmobiliaria",
+      "favicon": "https://favicons.linkup.so?domain=www.zazume.com"
+     },
+     {
+      "name": "Barcelona’s Zazume raises €2.5 million to scale its AI-powered rental management platform | EU-Startups",
+      "url": "https://www.eu-startups.com/2026/06/barcelonas-zazume-raises-e2-5-million-to-scale-its-ai-powered-rental-management-platform/",
+      "favicon": "https://favicons.linkup.so?domain=www.eu-startups.com"
+     },
+     {
+      "name": "Zazume raises €2.5 million Bridge — PropTech funding Spain 2026 | Scaling Europe",
+      "url": "https://scalingeurope.co.uk/dispatches/funding-zazume-2-5-million",
+      "favicon": "https://favicons.linkup.so?domain=scalingeurope.co.uk"
+     },
+     {
+      "name": "Zazume - Headcount, Funding & Open Jobs (October 2026)",
+      "url": "https://profiles.crustdata.com/company/zazume",
+      "favicon": "https://favicons.linkup.so?domain=profiles.crustdata.com"
+     },
+     {
+      "name": "Zazume",
+      "url": "https://es.linkedin.com/company/zazume",
+      "favicon": "https://favicons.linkup.so?domain=es.linkedin.com"
+     }
+    ],
+    "consulted": 63
+   },
+   "enrichment": {
+    "source": "apollo",
+    "mode": "live",
+    "domain": "zazume.com",
+    "matched": true,
+    "fetchedAt": "2026-11-11T06:51:35.962Z",
+    "fields": {
+     "name": "Zazume",
+     "estimated_num_employees": 44,
+     "industry": "real estate",
+     "city": "Barcelona",
+     "country": "Spain",
+     "total_funding_printed": "8M",
+     "latest_funding_round_date": "2026-06-01T00:00:00.000+00:00",
+     "latest_funding_stage": "Series A",
+     "organization_headcount_six_month_growth": 0,
+     "organization_headcount_twelve_month_growth": 0,
+     "organization_headcount_twenty_four_month_growth": -1,
+     "funding_events": [
+      {
+       "date": "2026-06-01T00:00:00.000+00:00",
+       "type": "Series A",
+       "amount": "2.5M",
+       "currency": "€"
+      },
+      {
+       "date": "2025-05-01T00:00:00.000+00:00",
+       "type": "Debt Financing",
+       "amount": "1.2M",
+       "currency": "€"
+      },
+      {
+       "date": "2025-04-01T00:00:00.000+00:00",
+       "type": "Seed",
+       "amount": "1.2M",
+       "currency": "€"
+      },
+      {
+       "date": "2021-11-01T00:00:00.000+00:00",
+       "type": "Seed",
+       "amount": "2.5M",
+       "currency": "€"
+      }
+     ]
+    }
+   },
+   "traces": {
+    "gate1": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 584,
+      "output_tokens": 40,
+      "cost": 0.000024528,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000024528,
+       "upstream_inference_prompt_cost": 0.000024528,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 468,
+     "at": "2026-11-11T06:51:35.361Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    },
+    "gate2": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 1781,
+      "output_tokens": 239,
+      "cost": 0.000074802,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000074802,
+       "upstream_inference_prompt_cost": 0.000074802,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 251,
+     "at": "2026-11-11T06:51:41.576Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    },
+    "action": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 1611,
+      "output_tokens": 59,
+      "cost": 0.000067662,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000067662,
+       "upstream_inference_prompt_cost": 0.000067662,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 203,
+     "at": "2026-11-11T06:51:41.780Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    }
+   }
+  },
+  {
+   "stage": "passed_gate1",
+   "gate2": [],
+   "gate1": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "unknown",
+    "probability": 0.74,
+    "probabilities": {
+     "fit": 0.25,
+     "no_fit": 0.01,
+     "unknown": 0.74
+    }
+   },
+   "error": "Linkup HTTP 400: {\"error\":{\"code\":\"SEARCH_QUERY_NO_RESULT\",\"details\":[],\"message\":\"The query did not yield any result\"},\"statusCode\":400}",
+   "finalAction": "needs_human_review",
+   "company": {
+    "name": "Wattwin",
+    "website": "wattwin.com",
+    "city": "Barcelona",
+    "country": "Spain",
+    "employees": 36,
+    "sector": "Software / SaaS",
+    "description": "Provides SaaS tools for marketing, sales, after-sales, and e-commerce; the available information lists it among recently funded Barcelona SaaS startups but gives no headcount or funding date.",
+    "discoveredBy": "linkup",
+    "foundBy": [
+     "linkup"
+    ],
+    "employeesSource": "apollo",
+    "sources": [
+     {
+      "name": "51 Recently Funded SaaS Startups in Barcelona (October 2026) | VCBacked",
+      "url": "https://www.vcbacked.co/directory/cities/industry/barcelona-spain/saas",
+      "favicon": "https://favicons.linkup.so?domain=www.vcbacked.co"
+     }
+    ]
+   },
+   "enrichment": {
+    "source": "apollo",
+    "mode": "live",
+    "domain": "wattwin.com",
+    "matched": true,
+    "fetchedAt": "2026-11-11T06:51:35.990Z",
+    "fields": {
+     "name": "Wattwin",
+     "estimated_num_employees": 36,
+     "industry": "information technology & services",
+     "city": "Barcelona",
+     "country": "Spain",
+     "total_funding_printed": "3.5M",
+     "latest_funding_round_date": "2025-02-01T00:00:00.000+00:00",
+     "latest_funding_stage": "Venture (Round not Specified)",
+     "organization_headcount_six_month_growth": 0,
+     "organization_headcount_twelve_month_growth": -1,
+     "organization_headcount_twenty_four_month_growth": -1,
+     "funding_events": [
+      {
+       "date": "2025-02-01T00:00:00.000+00:00",
+       "type": "Venture (Round not Specified)",
+       "amount": "3M",
+       "currency": "€"
+      },
+      {
+       "date": "2022-10-01T00:00:00.000+00:00",
+       "type": "Debt Financing",
+       "amount": "200K",
+       "currency": "€"
+      }
+     ]
+    },
+    "location": {
+     "lat": 41.396731,
+     "lng": 2.153167,
+     "precision": "address",
+     "query": ""
+    }
+   },
+   "traces": {
+    "gate1": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 612,
+      "output_tokens": 40,
+      "cost": 0.000025704,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000025704,
+       "upstream_inference_prompt_cost": 0.000025704,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 462,
+     "at": "2026-11-11T06:51:35.355Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    }
+   }
+  },
+  {
+   "stage": "actioned",
+   "gate2": [
+    {
+     "questionId": "funding_recent",
+     "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "hiring_in_target_cities",
+     "question": "According to the evidence, is the company hiring in one of the target cities?",
+     "choice": "unknown",
+     "probability": 0.97,
+     "probabilities": {
+      "yes": 0.02,
+      "no": 0.01,
+      "unknown": 0.97
+     }
+    },
+    {
+     "questionId": "new_product_or_market",
+     "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+     "choice": "no",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 1,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "leadership_change",
+     "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_growing_12m",
+     "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_in_range",
+     "question": "According to the evidence, does the company have between 3 and 50 employees?",
+     "choice": "yes",
+     "probability": 0.98,
+     "probabilities": {
+      "yes": 0.98,
+      "no": 0,
+      "unknown": 0.02
+     }
+    }
+   ],
+   "gate1": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "unknown",
+    "probability": 0.82,
+    "probabilities": {
+     "fit": 0.18,
+     "no_fit": 0,
+     "unknown": 0.82
+    }
+   },
+   "signalStrength": "weak",
+   "action": {
+    "questionId": "next_action",
+    "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+    "choice": "linkedin_touch",
+    "probability": 0.65,
+    "probabilities": {
+     "discard": 0.11,
+     "call_now": 0.02,
+     "send_email": 0.19,
+     "linkedin_touch": 0.65,
+     "nurture": 0.03
+    }
+   },
+   "finalAction": "linkedin_touch",
+   "draft": "LinkedIn (company page): congratulate Artiso on recent news (- More than €3 million, pre-seed, announced 28 October 2026. Sources: [Artiso announcement](https://www.artiso.ai/news/artiso-pre-seed-round); [EU-Startups](https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/).) and mention that we offer B2B software that automates finance, HR and sales operations for small and mid-sized companies in Barcelona. No hard ask.",
+   "company": {
+    "name": "Artiso",
+    "website": "artiso.io",
+    "city": "Barcelona",
+    "sector": "Software / SaaS",
+    "discoveredBy": "cala",
+    "foundBy": [
+     "cala"
+    ]
+   },
+   "evidence": {
+    "mode": "live",
+    "fields": {
+     "funding_last_12_months": "More than €3 million, pre-seed, announced 28 October 2026. Sources: [Artiso announcement](https://www.artiso.ai/news/artiso-pre-seed-round); [EU-Startups](https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/).",
+     "hiring_in_target_cities": "Hiring across fashion and technology is reported, but no open roles or Barcelona-specific hiring activity are stated. Source: [EU-Startups](https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/).",
+     "new_product_or_market": "No distinct new product launch or entry into a new market/country in the last 12 months was found. Artiso’s public launch was in July 2025, outside that period; it reports customers across Europe, North America and Asia. Sources: [FashionUnited](https://fashionunited.uk/news/fashion/a-spanish-startup-launches-ai-tool-to-streamline-fashions-creative-engine/2025070882691); [Artiso announcement](https://www.artiso.ai/news/artiso-pre-seed-round).",
+     "leadership_change": null,
+     "headcount": "Approximately 7 employees (reported as 1–10). Sources: [StartupHub.ai](https://www.startuphub.ai/startups/artiso); [LinkedIn company profile](https://es.linkedin.com/company/artiso-ai)."
+    },
+    "sources": [
+     {
+      "name": "ARTISO raises more than €3 million in pre-seed funding",
+      "url": "https://www.artiso.ai/news/artiso-pre-seed-round",
+      "favicon": "https://favicons.linkup.so?domain=www.artiso.ai"
+     },
+     {
+      "name": "A Spanish startup launches AI tool to streamline fashion’s creative engine",
+      "url": "https://fashionunited.uk/news/fashion/a-spanish-startup-launches-ai-tool-to-streamline-fashions-creative-engine/2025070882691",
+      "favicon": "https://favicons.linkup.so?domain=fashionunited.uk"
+     },
+     {
+      "name": "Barcelona’s Artiso raises over €3 million to scale its AI operating system for fashion teams | EU-Startups",
+      "url": "https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/",
+      "favicon": "https://favicons.linkup.so?domain=www.eu-startups.com"
+     },
+     {
+      "name": "Artiso - FashionTech - $3M Raised | StartupHub.ai",
+      "url": "https://www.startuphub.ai/startups/artiso",
+      "favicon": "https://favicons.linkup.so?domain=www.startuphub.ai"
+     },
+     {
+      "name": "ARTISO AI",
+      "url": "https://es.linkedin.com/company/artiso-ai",
+      "favicon": "https://favicons.linkup.so?domain=es.linkedin.com"
+     }
+    ],
+    "consulted": 68
+   },
+   "enrichment": {
+    "source": "apollo",
+    "mode": "live",
+    "domain": "artiso.io",
+    "matched": false,
+    "fetchedAt": "2026-11-11T06:51:36.094Z",
+    "fields": {}
+   },
+   "traces": {
+    "gate1": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 577,
+      "output_tokens": 40,
+      "cost": 0.000024234,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000024234,
+       "upstream_inference_prompt_cost": 0.000024234,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 207,
+     "at": "2026-11-11T06:51:35.578Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    },
+    "gate2": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 1626,
+      "output_tokens": 239,
+      "cost": 0.000068292,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000068292,
+       "upstream_inference_prompt_cost": 0.000068292,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 303,
+     "at": "2026-11-11T06:51:42.016Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    },
+    "action": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 1444,
+      "output_tokens": 59,
+      "cost": 0.000060648,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000060648,
+       "upstream_inference_prompt_cost": 0.000060648,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 218,
+     "at": "2026-11-11T06:51:42.235Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    }
+   }
+  },
+  {
+   "stage": "review",
+   "gate2": [
+    {
+     "questionId": "funding_recent",
+     "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+     "choice": "unknown",
+     "probability": 0.76,
+     "probabilities": {
+      "yes": 0.2,
+      "no": 0.04,
+      "unknown": 0.76
+     }
+    },
+    {
+     "questionId": "hiring_in_target_cities",
+     "question": "According to the evidence, is the company hiring in one of the target cities?",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "new_product_or_market",
+     "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+     "choice": "unknown",
+     "probability": 0.53,
+     "probabilities": {
+      "yes": 0,
+      "no": 0.47,
+      "unknown": 0.53
+     }
+    },
+    {
+     "questionId": "leadership_change",
+     "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_growing_12m",
+     "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_in_range",
+     "question": "According to the evidence, does the company have between 3 and 50 employees?",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    }
+   ],
+   "gate1": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "unknown",
+    "probability": 0.85,
+    "probabilities": {
+     "fit": 0.15,
+     "no_fit": 0,
+     "unknown": 0.85
+    }
+   },
+   "signalStrength": "none",
+   "action": {
+    "questionId": "next_action",
+    "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+    "choice": "nurture",
+    "probability": 0.54,
+    "probabilities": {
+     "discard": 0.4,
+     "call_now": 0,
+     "send_email": 0.01,
+     "linkedin_touch": 0.05,
+     "nurture": 0.54
+    }
+   },
+   "finalAction": "needs_human_review",
+   "draft": "NURTURE: BIOM. Fits the profile, no current signal. Re-check in 3 months.\nKnown so far:\n- (no specific signal found)",
+   "company": {
+    "name": "BIOM",
+    "city": "Barcelona",
+    "sector": "Health Tech",
+    "discoveredBy": "cala",
+    "foundBy": [
+     "cala"
+    ]
+   },
+   "evidence": {
+    "mode": "live",
+    "fields": {
+     "funding_last_12_months": "BIOM Bioinspired Materials: €2 million early-stage round; date not stated in the source. Dealroom News [21] and Spain’s ecosystem platform [23]. A separate source reports a €750,000 seed round in May 2025 [22], but the supplied information does not clarify whether it is the same or a different funding event. The company identity is ambiguous: other results concern unrelated companies named BIOM.",
+     "hiring_in_target_cities": "not stated. The supplied BIOM Bioinspired Materials information does not confirm open roles or hiring in Barcelona.",
+     "new_product_or_market": "not stated. The sources describe BIOM Bioinspired Materials’ Qsystem and Probio products as under development, but provide no confirmed launch or entry into a new market or country in the last 12 months [21, 23].",
+     "leadership_change": null,
+     "headcount": null
+    },
+    "sources": [],
+    "consulted": 79
+   },
+   "traces": {
+    "gate1": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 574,
+      "output_tokens": 40,
+      "cost": 0.000024108,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000024108,
+       "upstream_inference_prompt_cost": 0.000024108,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 228,
+     "at": "2026-11-11T06:51:42.011Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    },
+    "gate2": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 1447,
+      "output_tokens": 239,
+      "cost": 0.000060774,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000060774,
+       "upstream_inference_prompt_cost": 0.000060774,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 265,
+     "at": "2026-11-11T06:51:46.957Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    },
+    "action": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 1265,
+      "output_tokens": 60,
+      "cost": 0.00005313,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.00005313,
+       "upstream_inference_prompt_cost": 0.00005313,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 222,
+     "at": "2026-11-11T06:51:47.180Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    }
+   }
+  },
+  {
+   "stage": "actioned",
+   "gate2": [
+    {
+     "questionId": "funding_recent",
+     "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "hiring_in_target_cities",
+     "question": "According to the evidence, is the company hiring in one of the target cities?",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "new_product_or_market",
+     "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+     "choice": "no",
+     "probability": 0.99,
+     "probabilities": {
+      "yes": 0,
+      "no": 0.99,
+      "unknown": 0.01
+     }
+    },
+    {
+     "questionId": "leadership_change",
+     "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+     "choice": "yes",
+     "probability": 0.93,
+     "probabilities": {
+      "yes": 0.93,
+      "no": 0.04,
+      "unknown": 0.03
+     }
+    },
+    {
+     "questionId": "headcount_growing_12m",
+     "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_in_range",
+     "question": "According to the evidence, does the company have between 3 and 50 employees?",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    }
+   ],
+   "gate1": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "unknown",
+    "probability": 0.79,
+    "probabilities": {
+     "fit": 0.21,
+     "no_fit": 0,
+     "unknown": 0.79
+    }
+   },
+   "signalStrength": "medium",
+   "action": {
+    "questionId": "next_action",
+    "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+    "choice": "call_now",
+    "probability": 0.73,
+    "probabilities": {
+     "discard": 0.23,
+     "call_now": 0.73,
+     "send_email": 0.03,
+     "linkedin_touch": 0.01,
+     "nurture": 0
+    }
+   },
+   "finalAction": "call_now",
+   "draft": "CALL NOTES: Allox\nWhy now:\n- US$10.5 million (€9.4 million) seed round, announced October 29, 2026. Sources: [ALLOX](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline); [GlobeNewswire](https://www.globenewswire.com/news-release/2026/10/29/3390985/0/en/allox-closes-10-5m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline.html).\n- Barcelona: the company careers page invites spontaneous applications for roles across experimental, computational, and business teams; a Chief Scientific Officer role is also listed, with regular on-site work in Barcelona. Sources: [Spontaneous application](https://www.allox.bio/careers/spontaneous-application); [Chief Scientific Officer](https://www.allox.bio/careers/chief-scientific-officer).\n- Independent Chair of the Board appointed — October 29, 2026. Source: [ALLOX announcement](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline).\nOpening line: \"We saw that Allox is moving in Barcelona. We offer B2B software that automates finance, HR and sales operations for small and mid-sized companies, and teams in your situation usually need it now rather than in six months.\"\nAsk: what is changing for the team in Barcelona this quarter, and who decides on it.",
+   "company": {
+    "name": "Allox",
+    "city": "Barcelona",
+    "sector": "Health Tech / SaaS",
+    "discoveredBy": "cala",
+    "foundBy": [
+     "cala"
+    ]
+   },
+   "evidence": {
+    "mode": "live",
+    "fields": {
+     "funding_last_12_months": "US$10.5 million (€9.4 million) seed round, announced October 29, 2026. Sources: [ALLOX](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline); [GlobeNewswire](https://www.globenewswire.com/news-release/2026/10/29/3390985/0/en/allox-closes-10-5m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline.html).",
+     "hiring_in_target_cities": "Barcelona: the company careers page invites spontaneous applications for roles across experimental, computational, and business teams; a Chief Scientific Officer role is also listed, with regular on-site work in Barcelona. Sources: [Spontaneous application](https://www.allox.bio/careers/spontaneous-application); [Chief Scientific Officer](https://www.allox.bio/careers/chief-scientific-officer).",
+     "new_product_or_market": "No distinct product launch or entry into a new market or country in the last 12 months was found in the available sources. The company describes platform and pipeline development, not a specific launch or market entry. Source: [ALLOX announcement](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline).",
+     "leadership_change": "Independent Chair of the Board appointed — October 29, 2026. Source: [ALLOX announcement](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline).",
+     "headcount": "Approximately 25 employees. Sources: [LinkedIn company profile](https://es.linkedin.com/company/allox-bio); [Tracxn](https://tracxn.com/d/companies/allox/__zYDFXaPubEOW0DM3wa1Nb8pvEYKg24INud3O0Bk6BJE)."
+    },
+    "sources": [
+     {
+      "name": "ALLOX closes $10.5M seed financing and appoints Morten Graugaard as Chair to scale allosteric drug discovery platform and build pipeline",
+      "url": "https://www.globenewswire.com/news-release/2026/10/29/3390985/0/en/allox-closes-10-5m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline.html",
+      "favicon": "https://favicons.linkup.so?domain=www.globenewswire.com"
+     },
+     {
+      "name": "ALLOX",
+      "url": "https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline",
+      "favicon": "https://favicons.linkup.so?domain=www.allox.bio"
+     },
+     {
+      "name": "ALLOX",
+      "url": "https://es.linkedin.com/company/allox-bio",
+      "favicon": "https://favicons.linkup.so?domain=es.linkedin.com"
+     },
+     {
+      "name": "ALLOX",
+      "url": "https://www.allox.bio/careers/spontaneous-application",
+      "favicon": "https://favicons.linkup.so?domain=www.allox.bio"
+     },
+     {
+      "name": "ALLOX",
+      "url": "https://www.allox.bio/careers/chief-scientific-officer",
+      "favicon": "https://favicons.linkup.so?domain=www.allox.bio"
+     },
+     {
+      "name": "ALLOX - 2026 Company Profile, Team, Funding & Competitors - Tracxn",
+      "url": "https://tracxn.com/d/companies/allox/__zYDFXaPubEOW0DM3wa1Nb8pvEYKg24INud3O0Bk6BJE",
+      "favicon": "https://favicons.linkup.so?domain=tracxn.com"
+     }
+    ],
+    "consulted": 61
+   },
+   "traces": {
+    "gate1": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 577,
+      "output_tokens": 40,
+      "cost": 0.000024234,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000024234,
+       "upstream_inference_prompt_cost": 0.000024234,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 214,
+     "at": "2026-11-11T06:51:42.451Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    },
+    "gate2": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 1788,
+      "output_tokens": 239,
+      "cost": 0.000075096,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000075096,
+       "upstream_inference_prompt_cost": 0.000075096,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 233,
+     "at": "2026-11-11T06:51:48.111Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    },
+    "action": {
+     "mode": "live",
+     "engine": "jev",
+     "model": "typesafe/jev-1.14-20261014",
+     "route": "openrouter",
+     "usage": {
+      "input_tokens": 1606,
+      "output_tokens": 59,
+      "cost": 0.000067452,
+      "is_byok": false,
+      "cost_details": {
+       "upstream_inference_cost": 0.000067452,
+       "upstream_inference_prompt_cost": 0.000067452,
+       "upstream_inference_completions_cost": 0
+      }
+     },
+     "ms": 219,
+     "at": "2026-11-11T06:51:48.331Z",
+     "state": "",
+     "questions": {},
+     "answers": null,
+     "omitted": true
+    }
+   }
+  }
+ ],
+ "notes": [
+  "Saved example: derived fields only (no decision traces, no raw company-data payload)."
+ ],
+ "events": [
+  {
+   "type": "run_started",
+   "profile": {
+    "id": "b2b-software-smb",
+    "name": "B2B software for SMBs",
+    "reviewThreshold": 0.55
+   },
+   "providers": {
+    "jev": "live",
+    "linkup": "live",
+    "cala": "live"
+   },
+   "input": {
+    "profileId": "b2b-software-smb",
+    "discovery": "both",
+    "limit": 8,
+    "fixturesOnly": false,
+    "profileOverride": {
+     "cities": [
+      "Barcelona"
+     ],
+     "sizeRange": {
+      "min": 3,
+      "max": 50
+     }
+    }
+   },
+   "t": 0
+  },
+  {
+   "type": "discovery_query",
+   "provider": "linkup",
+   "mode": "live",
+   "query": "List up to 2 real companies with an office or team in Barcelona with roughly 3-50 employees, in these sectors: software, saas, fintech, e-commerce, health tech, logistics, professional services, travel tech. They should be likely buyers of B2B software that automates finance, HR and sales operations for small and mid-sized companies (typical buyer: small and mid-sized companies whose operations outgrow spreadsheets as they scale). Prefer companies with recent news: funding, hiring, expansion or launches in the last 12 months. Company-level information only, no people.",
+   "city": "Barcelona",
+   "t": 0
+  },
+  {
+   "type": "discovery_query",
+   "provider": "cala",
+   "mode": "live",
+   "query": "Companies headquartered or with an office in Barcelona, between 3 and 50 employees, in sectors software, saas, fintech, e-commerce, health tech, logistics, professional services, travel tech, that raised funding in the last 12 months. Return name, website, city, employees, sector.",
+   "city": "Barcelona",
+   "t": 3
+  },
+  {
+   "type": "discovery_done",
+   "provider": "cala",
+   "mode": "live",
+   "query": "Companies headquartered or with an office in Barcelona, between 3 and 50 employees, in sectors software, saas, fintech, e-commerce, health tech, logistics, professional services, travel tech, that raised funding in the last 12 months. Return name, website, city, employees, sector.",
+   "city": "Barcelona",
+   "count": 4,
+   "ms": 563,
+   "t": 566
+  },
+  {
+   "type": "discovery_done",
+   "provider": "linkup",
+   "mode": "live",
+   "query": "List up to 2 real companies with an office or team in Barcelona with roughly 3-50 employees, in these sectors: software, saas, fintech, e-commerce, health tech, logistics, professional services, travel tech. They should be likely buyers of B2B software that automates finance, HR and sales operations for small and mid-sized companies (typical buyer: small and mid-sized companies whose operations outgrow spreadsheets as they scale). Prefer companies with recent news: funding, hiring, expansion or launches in the last 12 months. Company-level information only, no people.",
+   "city": "Barcelona",
+   "count": 2,
+   "ms": 2767,
+   "t": 2767
+  },
+  {
+   "type": "company_discovered",
+   "index": 0,
+   "company": {
+    "name": "Amenitiz",
+    "website": "amenitiz.com",
+    "city": "Barcelona",
+    "country": "Spain",
+    "employees": 280,
+    "sector": "Travel tech / SaaS",
+    "description": "Provides software-as-a-service solutions for travel and hospitality businesses; the available information reports $83.2 million in funding as of September 2026, but does not establish its headcount or a recent funding event within the last 12 months.",
+    "discoveredBy": "linkup",
+    "foundBy": [
+     "linkup"
+    ],
+    "employeesSource": "apollo",
+    "sources": [
+     {
+      "name": "List of 55 Travel and Hospitality SaaS Startups in Barcelona, Spain & Market Trends (Sep 2026) - Tracxn",
+      "url": "https://tracxn.com/d/explore/travel-and-hospitality-saas-startups-in-barcelona-spain/__pd61S0Qh_0rvgbSQQgAHUjB88PgX5SnTOmFwb3W1VtE",
+      "favicon": "https://favicons.linkup.so?domain=tracxn.com"
+     }
+    ]
+   },
+   "t": 2772
+  },
+  {
+   "type": "company_discovered",
+   "index": 1,
+   "company": {
+    "name": "Zazume",
+    "website": "zazume.com",
+    "city": "Barcelona",
+    "employees": 37,
+    "sector": "Fintech / PropTech (SaaS)",
+    "discoveredBy": "cala",
+    "foundBy": [
+     "cala"
+    ]
+   },
+   "t": 2772
+  },
+  {
+   "type": "company_discovered",
+   "index": 2,
+   "company": {
+    "name": "Wattwin",
+    "website": "wattwin.com",
+    "city": "Barcelona",
+    "country": "Spain",
+    "sector": "Software / SaaS",
+    "description": "Provides SaaS tools for marketing, sales, after-sales, and e-commerce; the available information lists it among recently funded Barcelona SaaS startups but gives no headcount or funding date.",
+    "discoveredBy": "linkup",
+    "foundBy": [
+     "linkup"
+    ],
+    "sources": [
+     {
+      "name": "51 Recently Funded SaaS Startups in Barcelona (October 2026) | VCBacked",
+      "url": "https://www.vcbacked.co/directory/cities/industry/barcelona-spain/saas",
+      "favicon": "https://favicons.linkup.so?domain=www.vcbacked.co"
+     }
+    ]
+   },
+   "t": 2772
+  },
+  {
+   "type": "company_discovered",
+   "index": 3,
+   "company": {
+    "name": "Artiso",
+    "website": "artiso.io",
+    "city": "Barcelona",
+    "sector": "Software / SaaS",
+    "discoveredBy": "cala",
+    "foundBy": [
+     "cala"
+    ]
+   },
+   "t": 2772
+  },
+  {
+   "type": "company_discovered",
+   "index": 4,
+   "company": {
+    "name": "BIOM",
+    "city": "Barcelona",
+    "sector": "Health Tech",
+    "discoveredBy": "cala",
+    "foundBy": [
+     "cala"
+    ]
+   },
+   "t": 2772
+  },
+  {
+   "type": "company_discovered",
+   "index": 5,
+   "company": {
+    "name": "Allox",
+    "city": "Barcelona",
+    "sector": "Health Tech / SaaS",
+    "discoveredBy": "cala",
+    "foundBy": [
+     "cala"
+    ]
+   },
+   "t": 2772
+  },
+  {
+   "type": "decision_started",
+   "index": 0,
+   "step": "gate1",
+   "questions": [
+    "profile_fit"
+   ],
+   "engine": "jev",
+   "t": 2773
+  },
+  {
+   "type": "decision_started",
+   "index": 1,
+   "step": "gate1",
+   "questions": [
+    "profile_fit"
+   ],
+   "engine": "jev",
+   "t": 2775
+  },
+  {
+   "type": "decision_started",
+   "index": 2,
+   "step": "gate1",
+   "questions": [
+    "profile_fit"
+   ],
+   "engine": "jev",
+   "t": 2776
+  },
+  {
+   "type": "gate1",
+   "index": 2,
+   "answer": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "unknown",
+    "probability": 0.74,
+    "probabilities": {
+     "fit": 0.25,
+     "no_fit": 0.01,
+     "unknown": 0.74
+    }
+   },
+   "dropped": false,
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 612,
+     "output_tokens": 40,
+     "cost": 0.000025704,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000025704,
+      "upstream_inference_prompt_cost": 0.000025704,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 462,
+    "at": "2026-11-11T06:51:35.355Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 3238
+  },
+  {
+   "type": "gate1",
+   "index": 1,
+   "answer": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "fit",
+    "probability": 0.99,
+    "probabilities": {
+     "fit": 0.99,
+     "no_fit": 0,
+     "unknown": 0.01
+    }
+   },
+   "dropped": false,
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 584,
+     "output_tokens": 40,
+     "cost": 0.000024528,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000024528,
+      "upstream_inference_prompt_cost": 0.000024528,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 468,
+    "at": "2026-11-11T06:51:35.361Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 3244
+  },
+  {
+   "type": "gate1",
+   "index": 0,
+   "answer": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "no_fit",
+    "probability": 0.94,
+    "probabilities": {
+     "fit": 0.05,
+     "no_fit": 0.94,
+     "unknown": 0.01
+    }
+   },
+   "dropped": true,
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 640,
+     "output_tokens": 41,
+     "cost": 0.00002688,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.00002688,
+      "upstream_inference_prompt_cost": 0.00002688,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 481,
+    "at": "2026-11-11T06:51:35.371Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 3254
+  },
+  {
+   "type": "company_done",
+   "index": 0,
+   "result": {
+    "stage": "dropped_gate1",
+    "gate2": [],
+    "gate1": {
+     "questionId": "profile_fit",
+     "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+     "choice": "no_fit",
+     "probability": 0.94,
+     "probabilities": {
+      "fit": 0.05,
+      "no_fit": 0.94,
+      "unknown": 0.01
+     }
+    },
+    "company": {
+     "name": "Amenitiz",
+     "website": "amenitiz.com",
+     "city": "Barcelona",
+     "country": "Spain",
+     "employees": 280,
+     "sector": "Travel tech / SaaS",
+     "description": "Provides software-as-a-service solutions for travel and hospitality businesses; the available information reports $83.2 million in funding as of September 2026, but does not establish its headcount or a recent funding event within the last 12 months.",
+     "discoveredBy": "linkup",
+     "foundBy": [
+      "linkup"
+     ],
+     "employeesSource": "apollo",
+     "sources": [
+      {
+       "name": "List of 55 Travel and Hospitality SaaS Startups in Barcelona, Spain & Market Trends (Sep 2026) - Tracxn",
+       "url": "https://tracxn.com/d/explore/travel-and-hospitality-saas-startups-in-barcelona-spain/__pd61S0Qh_0rvgbSQQgAHUjB88PgX5SnTOmFwb3W1VtE",
+       "favicon": "https://favicons.linkup.so?domain=tracxn.com"
+      }
+     ]
+    },
+    "traces": {
+     "gate1": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 640,
+       "output_tokens": 41,
+       "cost": 0.00002688,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.00002688,
+        "upstream_inference_prompt_cost": 0.00002688,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 481,
+      "at": "2026-11-11T06:51:35.371Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     }
+    }
+   },
+   "t": 3254
+  },
+  {
+   "type": "decision_started",
+   "index": 3,
+   "step": "gate1",
+   "questions": [
+    "profile_fit"
+   ],
+   "engine": "jev",
+   "t": 3254
+  },
+  {
+   "type": "gate1",
+   "index": 3,
+   "answer": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "unknown",
+    "probability": 0.82,
+    "probabilities": {
+     "fit": 0.18,
+     "no_fit": 0,
+     "unknown": 0.82
+    }
+   },
+   "dropped": false,
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 577,
+     "output_tokens": 40,
+     "cost": 0.000024234,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000024234,
+      "upstream_inference_prompt_cost": 0.000024234,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 207,
+    "at": "2026-11-11T06:51:35.578Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 3461
+  },
+  {
+   "type": "enrichment_done",
+   "index": 1,
+   "enrichment": {
+    "source": "apollo",
+    "mode": "live",
+    "domain": "zazume.com",
+    "matched": true,
+    "fetchedAt": "2026-11-11T06:51:35.962Z",
+    "fields": {
+     "name": "Zazume",
+     "estimated_num_employees": 44,
+     "industry": "real estate",
+     "city": "Barcelona",
+     "country": "Spain",
+     "total_funding_printed": "8M",
+     "latest_funding_round_date": "2026-06-01T00:00:00.000+00:00",
+     "latest_funding_stage": "Series A",
+     "organization_headcount_six_month_growth": 0,
+     "organization_headcount_twelve_month_growth": 0,
+     "organization_headcount_twenty_four_month_growth": -1,
+     "funding_events": [
+      {
+       "date": "2026-06-01T00:00:00.000+00:00",
+       "type": "Series A",
+       "amount": "2.5M",
+       "currency": "€"
+      },
+      {
+       "date": "2025-05-01T00:00:00.000+00:00",
+       "type": "Debt Financing",
+       "amount": "1.2M",
+       "currency": "€"
+      },
+      {
+       "date": "2025-04-01T00:00:00.000+00:00",
+       "type": "Seed",
+       "amount": "1.2M",
+       "currency": "€"
+      },
+      {
+       "date": "2021-11-01T00:00:00.000+00:00",
+       "type": "Seed",
+       "amount": "2.5M",
+       "currency": "€"
+      }
+     ]
+    }
+   },
+   "ms": 722,
+   "t": 3966
+  },
+  {
+   "type": "research_started",
+   "index": 1,
+   "t": 3966
+  },
+  {
+   "type": "enrichment_done",
+   "index": 3,
+   "enrichment": {
+    "source": "apollo",
+    "mode": "live",
+    "domain": "artiso.io",
+    "matched": false,
+    "fetchedAt": "2026-11-11T06:51:36.094Z",
+    "fields": {}
+   },
+   "ms": 515,
+   "t": 3977
+  },
+  {
+   "type": "research_started",
+   "index": 3,
+   "t": 3977
+  },
+  {
+   "type": "enrichment_done",
+   "index": 2,
+   "enrichment": {
+    "source": "apollo",
+    "mode": "live",
+    "domain": "wattwin.com",
+    "matched": true,
+    "fetchedAt": "2026-11-11T06:51:35.990Z",
+    "fields": {
+     "name": "Wattwin",
+     "estimated_num_employees": 36,
+     "industry": "information technology & services",
+     "city": "Barcelona",
+     "country": "Spain",
+     "total_funding_printed": "3.5M",
+     "latest_funding_round_date": "2025-02-01T00:00:00.000+00:00",
+     "latest_funding_stage": "Venture (Round not Specified)",
+     "organization_headcount_six_month_growth": 0,
+     "organization_headcount_twelve_month_growth": -1,
+     "organization_headcount_twenty_four_month_growth": -1,
+     "funding_events": [
+      {
+       "date": "2025-02-01T00:00:00.000+00:00",
+       "type": "Venture (Round not Specified)",
+       "amount": "3M",
+       "currency": "€"
+      },
+      {
+       "date": "2022-10-01T00:00:00.000+00:00",
+       "type": "Debt Financing",
+       "amount": "200K",
+       "currency": "€"
+      }
+     ]
+    },
+    "location": {
+     "lat": 41.396731,
+     "lng": 2.153167,
+     "precision": "address",
+     "query": ""
+    }
+   },
+   "ms": 826,
+   "t": 4064
+  },
+  {
+   "type": "research_started",
+   "index": 2,
+   "t": 4064
+  },
+  {
+   "type": "research_done",
+   "index": 1,
+   "evidence": {
+    "mode": "live",
+    "fields": {
+     "funding_last_12_months": "€2.5 million funding round, announced June 2, 2026; sources differ on whether it was Series A or a bridge round. [EU-Startups](https://www.eu-startups.com/2026/06/barcelonas-zazume-raises-e2-5-million-to-scale-its-ai-powered-rental-management-platform/); [Scaling Europe](https://scalingeurope.co.uk/dispatches/funding-zazume-2-5-million).",
+     "hiring_in_target_cities": "Barcelona hiring reported for Sales Specialist (Real Estate – Alquileres; posted September 6, 2026) and Commercial Operations Specialist (Alquileres; posted September 2, 2026). A company LinkedIn post also advertised an in-house design role in Barcelona, but the supplied information does not show its posting date. [Crustdata](https://profiles.crustdata.com/company/zazume); [LinkedIn](https://es.linkedin.com/company/zazume).",
+     "new_product_or_market": "No new product launch or entry into a new country in the last 12 months was found in the supplied sources. Zazume did acquire Landa Propiedades’ rental portfolio in Zaragoza in April 2026, expanding its Spanish portfolio; this is an acquisition, not evidence of entry into a new country. [Zazume blog](https://www.zazume.com/en/blog/categoria/actualidad-inmobiliaria).",
+     "leadership_change": "No qualifying company-level leadership change in the last 12 months was found in the supplied sources.",
+     "headcount": "Approximately 41 employees (September 2026 estimate); LinkedIn lists 44. [Crustdata](https://profiles.crustdata.com/company/zazume); [LinkedIn](https://es.linkedin.com/company/zazume)."
+    },
+    "sources": [
+     {
+      "name": "Actualidad Inmobiliaria - Blog - Zazume",
+      "url": "https://www.zazume.com/en/blog/categoria/actualidad-inmobiliaria",
+      "favicon": "https://favicons.linkup.so?domain=www.zazume.com"
+     },
+     {
+      "name": "Barcelona’s Zazume raises €2.5 million to scale its AI-powered rental management platform | EU-Startups",
+      "url": "https://www.eu-startups.com/2026/06/barcelonas-zazume-raises-e2-5-million-to-scale-its-ai-powered-rental-management-platform/",
+      "favicon": "https://favicons.linkup.so?domain=www.eu-startups.com"
+     },
+     {
+      "name": "Zazume raises €2.5 million Bridge — PropTech funding Spain 2026 | Scaling Europe",
+      "url": "https://scalingeurope.co.uk/dispatches/funding-zazume-2-5-million",
+      "favicon": "https://favicons.linkup.so?domain=scalingeurope.co.uk"
+     },
+     {
+      "name": "Zazume - Headcount, Funding & Open Jobs (October 2026)",
+      "url": "https://profiles.crustdata.com/company/zazume",
+      "favicon": "https://favicons.linkup.so?domain=profiles.crustdata.com"
+     },
+     {
+      "name": "Zazume",
+      "url": "https://es.linkedin.com/company/zazume",
+      "favicon": "https://favicons.linkup.so?domain=es.linkedin.com"
+     }
+    ],
+    "consulted": 63
+   },
+   "ms": 5240,
+   "t": 9206
+  },
+  {
+   "type": "decision_started",
+   "index": 1,
+   "step": "gate2",
+   "questions": [
+    "funding_recent",
+    "hiring_in_target_cities",
+    "new_product_or_market",
+    "leadership_change",
+    "headcount_growing_12m",
+    "headcount_in_range"
+   ],
+   "engine": "jev",
+   "t": 9207
+  },
+  {
+   "type": "gate2",
+   "index": 1,
+   "answers": [
+    {
+     "questionId": "funding_recent",
+     "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "hiring_in_target_cities",
+     "question": "According to the evidence, is the company hiring in one of the target cities?",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "new_product_or_market",
+     "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+     "choice": "no",
+     "probability": 0.96,
+     "probabilities": {
+      "yes": 0.03,
+      "no": 0.96,
+      "unknown": 0.01
+     }
+    },
+    {
+     "questionId": "leadership_change",
+     "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+     "choice": "no",
+     "probability": 0.97,
+     "probabilities": {
+      "yes": 0,
+      "no": 0.97,
+      "unknown": 0.03
+     }
+    },
+    {
+     "questionId": "headcount_growing_12m",
+     "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+     "choice": "no",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 1,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "headcount_in_range",
+     "question": "According to the evidence, does the company have between 3 and 50 employees?",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    }
+   ],
+   "signalStrength": "weak",
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 1781,
+     "output_tokens": 239,
+     "cost": 0.000074802,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000074802,
+      "upstream_inference_prompt_cost": 0.000074802,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 251,
+    "at": "2026-11-11T06:51:41.576Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 9460
+  },
+  {
+   "type": "decision_started",
+   "index": 1,
+   "step": "action",
+   "questions": [
+    "next_action"
+   ],
+   "engine": "jev",
+   "t": 9460
+  },
+  {
+   "type": "research_done",
+   "index": 3,
+   "evidence": {
+    "mode": "live",
+    "fields": {
+     "funding_last_12_months": "More than €3 million, pre-seed, announced 28 October 2026. Sources: [Artiso announcement](https://www.artiso.ai/news/artiso-pre-seed-round); [EU-Startups](https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/).",
+     "hiring_in_target_cities": "Hiring across fashion and technology is reported, but no open roles or Barcelona-specific hiring activity are stated. Source: [EU-Startups](https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/).",
+     "new_product_or_market": "No distinct new product launch or entry into a new market/country in the last 12 months was found. Artiso’s public launch was in July 2025, outside that period; it reports customers across Europe, North America and Asia. Sources: [FashionUnited](https://fashionunited.uk/news/fashion/a-spanish-startup-launches-ai-tool-to-streamline-fashions-creative-engine/2025070882691); [Artiso announcement](https://www.artiso.ai/news/artiso-pre-seed-round).",
+     "leadership_change": null,
+     "headcount": "Approximately 7 employees (reported as 1–10). Sources: [StartupHub.ai](https://www.startuphub.ai/startups/artiso); [LinkedIn company profile](https://es.linkedin.com/company/artiso-ai)."
+    },
+    "sources": [
+     {
+      "name": "ARTISO raises more than €3 million in pre-seed funding",
+      "url": "https://www.artiso.ai/news/artiso-pre-seed-round",
+      "favicon": "https://favicons.linkup.so?domain=www.artiso.ai"
+     },
+     {
+      "name": "A Spanish startup launches AI tool to streamline fashion’s creative engine",
+      "url": "https://fashionunited.uk/news/fashion/a-spanish-startup-launches-ai-tool-to-streamline-fashions-creative-engine/2025070882691",
+      "favicon": "https://favicons.linkup.so?domain=fashionunited.uk"
+     },
+     {
+      "name": "Barcelona’s Artiso raises over €3 million to scale its AI operating system for fashion teams | EU-Startups",
+      "url": "https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/",
+      "favicon": "https://favicons.linkup.so?domain=www.eu-startups.com"
+     },
+     {
+      "name": "Artiso - FashionTech - $3M Raised | StartupHub.ai",
+      "url": "https://www.startuphub.ai/startups/artiso",
+      "favicon": "https://favicons.linkup.so?domain=www.startuphub.ai"
+     },
+     {
+      "name": "ARTISO AI",
+      "url": "https://es.linkedin.com/company/artiso-ai",
+      "favicon": "https://favicons.linkup.so?domain=es.linkedin.com"
+     }
+    ],
+    "consulted": 68
+   },
+   "ms": 5618,
+   "t": 9595
+  },
+  {
+   "type": "decision_started",
+   "index": 3,
+   "step": "gate2",
+   "questions": [
+    "funding_recent",
+    "hiring_in_target_cities",
+    "new_product_or_market",
+    "leadership_change",
+    "headcount_growing_12m",
+    "headcount_in_range"
+   ],
+   "engine": "jev",
+   "t": 9595
+  },
+  {
+   "type": "action",
+   "index": 1,
+   "answer": {
+    "questionId": "next_action",
+    "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+    "choice": "call_now",
+    "probability": 0.8,
+    "probabilities": {
+     "discard": 0,
+     "call_now": 0.8,
+     "send_email": 0.07,
+     "linkedin_touch": 0.13,
+     "nurture": 0
+    }
+   },
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 1611,
+     "output_tokens": 59,
+     "cost": 0.000067662,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000067662,
+      "upstream_inference_prompt_cost": 0.000067662,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 203,
+    "at": "2026-11-11T06:51:41.780Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 9663
+  },
+  {
+   "type": "routed",
+   "index": 1,
+   "routed": "actioned",
+   "finalAction": "call_now",
+   "reason": "Top choice call_now at 80% >= threshold 55%",
+   "t": 9664
+  },
+  {
+   "type": "company_done",
+   "index": 1,
+   "result": {
+    "stage": "actioned",
+    "gate2": [
+     {
+      "questionId": "funding_recent",
+      "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+      "choice": "yes",
+      "probability": 1,
+      "probabilities": {
+       "yes": 1,
+       "no": 0,
+       "unknown": 0
+      }
+     },
+     {
+      "questionId": "hiring_in_target_cities",
+      "question": "According to the evidence, is the company hiring in one of the target cities?",
+      "choice": "yes",
+      "probability": 1,
+      "probabilities": {
+       "yes": 1,
+       "no": 0,
+       "unknown": 0
+      }
+     },
+     {
+      "questionId": "new_product_or_market",
+      "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+      "choice": "no",
+      "probability": 0.96,
+      "probabilities": {
+       "yes": 0.03,
+       "no": 0.96,
+       "unknown": 0.01
+      }
+     },
+     {
+      "questionId": "leadership_change",
+      "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+      "choice": "no",
+      "probability": 0.97,
+      "probabilities": {
+       "yes": 0,
+       "no": 0.97,
+       "unknown": 0.03
+      }
+     },
+     {
+      "questionId": "headcount_growing_12m",
+      "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+      "choice": "no",
+      "probability": 1,
+      "probabilities": {
+       "yes": 0,
+       "no": 1,
+       "unknown": 0
+      }
+     },
+     {
+      "questionId": "headcount_in_range",
+      "question": "According to the evidence, does the company have between 3 and 50 employees?",
+      "choice": "yes",
+      "probability": 1,
+      "probabilities": {
+       "yes": 1,
+       "no": 0,
+       "unknown": 0
+      }
+     }
+    ],
+    "gate1": {
+     "questionId": "profile_fit",
+     "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+     "choice": "fit",
+     "probability": 0.99,
+     "probabilities": {
+      "fit": 0.99,
+      "no_fit": 0,
+      "unknown": 0.01
+     }
+    },
+    "signalStrength": "weak",
+    "action": {
+     "questionId": "next_action",
+     "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+     "choice": "call_now",
+     "probability": 0.8,
+     "probabilities": {
+      "discard": 0,
+      "call_now": 0.8,
+      "send_email": 0.07,
+      "linkedin_touch": 0.13,
+      "nurture": 0
+     }
+    },
+    "finalAction": "call_now",
+    "draft": "CALL NOTES: Zazume\nWhy now:\n- €2.5 million funding round, announced June 2, 2026; sources differ on whether it was Series A or a bridge round. [EU-Startups](https://www.eu-startups.com/2026/06/barcelonas-zazume-raises-e2-5-million-to-scale-its-ai-powered-rental-management-platform/); [Scaling Europe](https://scalingeurope.co.uk/dispatches/funding-zazume-2-5-million).\n- Barcelona hiring reported for Sales Specialist (Real Estate – Alquileres; posted September 6, 2026) and Commercial Operations Specialist (Alquileres; posted September 2, 2026). A company LinkedIn post also advertised an in-house design role in Barcelona, but the supplied information does not show its posting date. [Crustdata](https://profiles.crustdata.com/company/zazume); [LinkedIn](https://es.linkedin.com/company/zazume).\nOpening line: \"We saw that Zazume is moving in Barcelona. We offer B2B software that automates finance, HR and sales operations for small and mid-sized companies, and teams in your situation usually need it now rather than in six months.\"\nAsk: what is changing for the team in Barcelona this quarter, and who decides on it.",
+    "company": {
+     "name": "Zazume",
+     "website": "zazume.com",
+     "city": "Barcelona",
+     "employees": 44,
+     "sector": "Fintech / PropTech (SaaS)",
+     "discoveredBy": "cala",
+     "foundBy": [
+      "cala"
+     ],
+     "employeesSource": "apollo"
+    },
+    "evidence": {
+     "mode": "live",
+     "fields": {
+      "funding_last_12_months": "€2.5 million funding round, announced June 2, 2026; sources differ on whether it was Series A or a bridge round. [EU-Startups](https://www.eu-startups.com/2026/06/barcelonas-zazume-raises-e2-5-million-to-scale-its-ai-powered-rental-management-platform/); [Scaling Europe](https://scalingeurope.co.uk/dispatches/funding-zazume-2-5-million).",
+      "hiring_in_target_cities": "Barcelona hiring reported for Sales Specialist (Real Estate – Alquileres; posted September 6, 2026) and Commercial Operations Specialist (Alquileres; posted September 2, 2026). A company LinkedIn post also advertised an in-house design role in Barcelona, but the supplied information does not show its posting date. [Crustdata](https://profiles.crustdata.com/company/zazume); [LinkedIn](https://es.linkedin.com/company/zazume).",
+      "new_product_or_market": "No new product launch or entry into a new country in the last 12 months was found in the supplied sources. Zazume did acquire Landa Propiedades’ rental portfolio in Zaragoza in April 2026, expanding its Spanish portfolio; this is an acquisition, not evidence of entry into a new country. [Zazume blog](https://www.zazume.com/en/blog/categoria/actualidad-inmobiliaria).",
+      "leadership_change": "No qualifying company-level leadership change in the last 12 months was found in the supplied sources.",
+      "headcount": "Approximately 41 employees (September 2026 estimate); LinkedIn lists 44. [Crustdata](https://profiles.crustdata.com/company/zazume); [LinkedIn](https://es.linkedin.com/company/zazume)."
+     },
+     "sources": [
+      {
+       "name": "Actualidad Inmobiliaria - Blog - Zazume",
+       "url": "https://www.zazume.com/en/blog/categoria/actualidad-inmobiliaria",
+       "favicon": "https://favicons.linkup.so?domain=www.zazume.com"
+      },
+      {
+       "name": "Barcelona’s Zazume raises €2.5 million to scale its AI-powered rental management platform | EU-Startups",
+       "url": "https://www.eu-startups.com/2026/06/barcelonas-zazume-raises-e2-5-million-to-scale-its-ai-powered-rental-management-platform/",
+       "favicon": "https://favicons.linkup.so?domain=www.eu-startups.com"
+      },
+      {
+       "name": "Zazume raises €2.5 million Bridge — PropTech funding Spain 2026 | Scaling Europe",
+       "url": "https://scalingeurope.co.uk/dispatches/funding-zazume-2-5-million",
+       "favicon": "https://favicons.linkup.so?domain=scalingeurope.co.uk"
+      },
+      {
+       "name": "Zazume - Headcount, Funding & Open Jobs (October 2026)",
+       "url": "https://profiles.crustdata.com/company/zazume",
+       "favicon": "https://favicons.linkup.so?domain=profiles.crustdata.com"
+      },
+      {
+       "name": "Zazume",
+       "url": "https://es.linkedin.com/company/zazume",
+       "favicon": "https://favicons.linkup.so?domain=es.linkedin.com"
+      }
+     ],
+     "consulted": 63
+    },
+    "enrichment": {
+     "source": "apollo",
+     "mode": "live",
+     "domain": "zazume.com",
+     "matched": true,
+     "fetchedAt": "2026-11-11T06:51:35.962Z",
+     "fields": {
+      "name": "Zazume",
+      "estimated_num_employees": 44,
+      "industry": "real estate",
+      "city": "Barcelona",
+      "country": "Spain",
+      "total_funding_printed": "8M",
+      "latest_funding_round_date": "2026-06-01T00:00:00.000+00:00",
+      "latest_funding_stage": "Series A",
+      "organization_headcount_six_month_growth": 0,
+      "organization_headcount_twelve_month_growth": 0,
+      "organization_headcount_twenty_four_month_growth": -1,
+      "funding_events": [
+       {
+        "date": "2026-06-01T00:00:00.000+00:00",
+        "type": "Series A",
+        "amount": "2.5M",
+        "currency": "€"
+       },
+       {
+        "date": "2025-05-01T00:00:00.000+00:00",
+        "type": "Debt Financing",
+        "amount": "1.2M",
+        "currency": "€"
+       },
+       {
+        "date": "2025-04-01T00:00:00.000+00:00",
+        "type": "Seed",
+        "amount": "1.2M",
+        "currency": "€"
+       },
+       {
+        "date": "2021-11-01T00:00:00.000+00:00",
+        "type": "Seed",
+        "amount": "2.5M",
+        "currency": "€"
+       }
+      ]
+     }
+    },
+    "traces": {
+     "gate1": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 584,
+       "output_tokens": 40,
+       "cost": 0.000024528,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000024528,
+        "upstream_inference_prompt_cost": 0.000024528,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 468,
+      "at": "2026-11-11T06:51:35.361Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     },
+     "gate2": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 1781,
+       "output_tokens": 239,
+       "cost": 0.000074802,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000074802,
+        "upstream_inference_prompt_cost": 0.000074802,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 251,
+      "at": "2026-11-11T06:51:41.576Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     },
+     "action": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 1611,
+       "output_tokens": 59,
+       "cost": 0.000067662,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000067662,
+        "upstream_inference_prompt_cost": 0.000067662,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 203,
+      "at": "2026-11-11T06:51:41.780Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     }
+    }
+   },
+   "t": 9664
+  },
+  {
+   "type": "decision_started",
+   "index": 4,
+   "step": "gate1",
+   "questions": [
+    "profile_fit"
+   ],
+   "engine": "jev",
+   "t": 9664
+  },
+  {
+   "type": "gate1",
+   "index": 4,
+   "answer": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "unknown",
+    "probability": 0.85,
+    "probabilities": {
+     "fit": 0.15,
+     "no_fit": 0,
+     "unknown": 0.85
+    }
+   },
+   "dropped": false,
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 574,
+     "output_tokens": 40,
+     "cost": 0.000024108,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000024108,
+      "upstream_inference_prompt_cost": 0.000024108,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 228,
+    "at": "2026-11-11T06:51:42.011Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 9894
+  },
+  {
+   "type": "research_started",
+   "index": 4,
+   "t": 9894
+  },
+  {
+   "type": "gate2",
+   "index": 3,
+   "answers": [
+    {
+     "questionId": "funding_recent",
+     "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "hiring_in_target_cities",
+     "question": "According to the evidence, is the company hiring in one of the target cities?",
+     "choice": "unknown",
+     "probability": 0.97,
+     "probabilities": {
+      "yes": 0.02,
+      "no": 0.01,
+      "unknown": 0.97
+     }
+    },
+    {
+     "questionId": "new_product_or_market",
+     "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+     "choice": "no",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 1,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "leadership_change",
+     "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_growing_12m",
+     "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_in_range",
+     "question": "According to the evidence, does the company have between 3 and 50 employees?",
+     "choice": "yes",
+     "probability": 0.98,
+     "probabilities": {
+      "yes": 0.98,
+      "no": 0,
+      "unknown": 0.02
+     }
+    }
+   ],
+   "signalStrength": "weak",
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 1626,
+     "output_tokens": 239,
+     "cost": 0.000068292,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000068292,
+      "upstream_inference_prompt_cost": 0.000068292,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 303,
+    "at": "2026-11-11T06:51:42.016Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 9900
+  },
+  {
+   "type": "decision_started",
+   "index": 3,
+   "step": "action",
+   "questions": [
+    "next_action"
+   ],
+   "engine": "jev",
+   "t": 9900
+  },
+  {
+   "type": "action",
+   "index": 3,
+   "answer": {
+    "questionId": "next_action",
+    "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+    "choice": "linkedin_touch",
+    "probability": 0.65,
+    "probabilities": {
+     "discard": 0.11,
+     "call_now": 0.02,
+     "send_email": 0.19,
+     "linkedin_touch": 0.65,
+     "nurture": 0.03
+    }
+   },
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 1444,
+     "output_tokens": 59,
+     "cost": 0.000060648,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000060648,
+      "upstream_inference_prompt_cost": 0.000060648,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 218,
+    "at": "2026-11-11T06:51:42.235Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 10119
+  },
+  {
+   "type": "routed",
+   "index": 3,
+   "routed": "actioned",
+   "finalAction": "linkedin_touch",
+   "reason": "Top choice linkedin_touch at 65% >= threshold 55%",
+   "t": 10119
+  },
+  {
+   "type": "company_done",
+   "index": 3,
+   "result": {
+    "stage": "actioned",
+    "gate2": [
+     {
+      "questionId": "funding_recent",
+      "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+      "choice": "yes",
+      "probability": 1,
+      "probabilities": {
+       "yes": 1,
+       "no": 0,
+       "unknown": 0
+      }
+     },
+     {
+      "questionId": "hiring_in_target_cities",
+      "question": "According to the evidence, is the company hiring in one of the target cities?",
+      "choice": "unknown",
+      "probability": 0.97,
+      "probabilities": {
+       "yes": 0.02,
+       "no": 0.01,
+       "unknown": 0.97
+      }
+     },
+     {
+      "questionId": "new_product_or_market",
+      "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+      "choice": "no",
+      "probability": 1,
+      "probabilities": {
+       "yes": 0,
+       "no": 1,
+       "unknown": 0
+      }
+     },
+     {
+      "questionId": "leadership_change",
+      "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+      "choice": "unknown",
+      "probability": 1,
+      "probabilities": {
+       "yes": 0,
+       "no": 0,
+       "unknown": 1
+      }
+     },
+     {
+      "questionId": "headcount_growing_12m",
+      "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+      "choice": "unknown",
+      "probability": 1,
+      "probabilities": {
+       "yes": 0,
+       "no": 0,
+       "unknown": 1
+      }
+     },
+     {
+      "questionId": "headcount_in_range",
+      "question": "According to the evidence, does the company have between 3 and 50 employees?",
+      "choice": "yes",
+      "probability": 0.98,
+      "probabilities": {
+       "yes": 0.98,
+       "no": 0,
+       "unknown": 0.02
+      }
+     }
+    ],
+    "gate1": {
+     "questionId": "profile_fit",
+     "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+     "choice": "unknown",
+     "probability": 0.82,
+     "probabilities": {
+      "fit": 0.18,
+      "no_fit": 0,
+      "unknown": 0.82
+     }
+    },
+    "signalStrength": "weak",
+    "action": {
+     "questionId": "next_action",
+     "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+     "choice": "linkedin_touch",
+     "probability": 0.65,
+     "probabilities": {
+      "discard": 0.11,
+      "call_now": 0.02,
+      "send_email": 0.19,
+      "linkedin_touch": 0.65,
+      "nurture": 0.03
+     }
+    },
+    "finalAction": "linkedin_touch",
+    "draft": "LinkedIn (company page): congratulate Artiso on recent news (- More than €3 million, pre-seed, announced 28 October 2026. Sources: [Artiso announcement](https://www.artiso.ai/news/artiso-pre-seed-round); [EU-Startups](https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/).) and mention that we offer B2B software that automates finance, HR and sales operations for small and mid-sized companies in Barcelona. No hard ask.",
+    "company": {
+     "name": "Artiso",
+     "website": "artiso.io",
+     "city": "Barcelona",
+     "sector": "Software / SaaS",
+     "discoveredBy": "cala",
+     "foundBy": [
+      "cala"
+     ]
+    },
+    "evidence": {
+     "mode": "live",
+     "fields": {
+      "funding_last_12_months": "More than €3 million, pre-seed, announced 28 October 2026. Sources: [Artiso announcement](https://www.artiso.ai/news/artiso-pre-seed-round); [EU-Startups](https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/).",
+      "hiring_in_target_cities": "Hiring across fashion and technology is reported, but no open roles or Barcelona-specific hiring activity are stated. Source: [EU-Startups](https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/).",
+      "new_product_or_market": "No distinct new product launch or entry into a new market/country in the last 12 months was found. Artiso’s public launch was in July 2025, outside that period; it reports customers across Europe, North America and Asia. Sources: [FashionUnited](https://fashionunited.uk/news/fashion/a-spanish-startup-launches-ai-tool-to-streamline-fashions-creative-engine/2025070882691); [Artiso announcement](https://www.artiso.ai/news/artiso-pre-seed-round).",
+      "leadership_change": null,
+      "headcount": "Approximately 7 employees (reported as 1–10). Sources: [StartupHub.ai](https://www.startuphub.ai/startups/artiso); [LinkedIn company profile](https://es.linkedin.com/company/artiso-ai)."
+     },
+     "sources": [
+      {
+       "name": "ARTISO raises more than €3 million in pre-seed funding",
+       "url": "https://www.artiso.ai/news/artiso-pre-seed-round",
+       "favicon": "https://favicons.linkup.so?domain=www.artiso.ai"
+      },
+      {
+       "name": "A Spanish startup launches AI tool to streamline fashion’s creative engine",
+       "url": "https://fashionunited.uk/news/fashion/a-spanish-startup-launches-ai-tool-to-streamline-fashions-creative-engine/2025070882691",
+       "favicon": "https://favicons.linkup.so?domain=fashionunited.uk"
+      },
+      {
+       "name": "Barcelona’s Artiso raises over €3 million to scale its AI operating system for fashion teams | EU-Startups",
+       "url": "https://www.eu-startups.com/2026/10/barcelonas-artiso-raises-over-e3-million-to-scale-its-ai-operating-system-for-fashion-teams/",
+       "favicon": "https://favicons.linkup.so?domain=www.eu-startups.com"
+      },
+      {
+       "name": "Artiso - FashionTech - $3M Raised | StartupHub.ai",
+       "url": "https://www.startuphub.ai/startups/artiso",
+       "favicon": "https://favicons.linkup.so?domain=www.startuphub.ai"
+      },
+      {
+       "name": "ARTISO AI",
+       "url": "https://es.linkedin.com/company/artiso-ai",
+       "favicon": "https://favicons.linkup.so?domain=es.linkedin.com"
+      }
+     ],
+     "consulted": 68
+    },
+    "enrichment": {
+     "source": "apollo",
+     "mode": "live",
+     "domain": "artiso.io",
+     "matched": false,
+     "fetchedAt": "2026-11-11T06:51:36.094Z",
+     "fields": {}
+    },
+    "traces": {
+     "gate1": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 577,
+       "output_tokens": 40,
+       "cost": 0.000024234,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000024234,
+        "upstream_inference_prompt_cost": 0.000024234,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 207,
+      "at": "2026-11-11T06:51:35.578Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     },
+     "gate2": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 1626,
+       "output_tokens": 239,
+       "cost": 0.000068292,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000068292,
+        "upstream_inference_prompt_cost": 0.000068292,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 303,
+      "at": "2026-11-11T06:51:42.016Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     },
+     "action": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 1444,
+       "output_tokens": 59,
+       "cost": 0.000060648,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000060648,
+        "upstream_inference_prompt_cost": 0.000060648,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 218,
+      "at": "2026-11-11T06:51:42.235Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     }
+    }
+   },
+   "t": 10119
+  },
+  {
+   "type": "decision_started",
+   "index": 5,
+   "step": "gate1",
+   "questions": [
+    "profile_fit"
+   ],
+   "engine": "jev",
+   "t": 10120
+  },
+  {
+   "type": "gate1",
+   "index": 5,
+   "answer": {
+    "questionId": "profile_fit",
+    "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+    "choice": "unknown",
+    "probability": 0.79,
+    "probabilities": {
+     "fit": 0.21,
+     "no_fit": 0,
+     "unknown": 0.79
+    }
+   },
+   "dropped": false,
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 577,
+     "output_tokens": 40,
+     "cost": 0.000024234,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000024234,
+      "upstream_inference_prompt_cost": 0.000024234,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 214,
+    "at": "2026-11-11T06:51:42.451Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 10334
+  },
+  {
+   "type": "research_started",
+   "index": 5,
+   "t": 10334
+  },
+  {
+   "type": "error",
+   "index": 2,
+   "message": "Linkup HTTP 400: {\"error\":{\"code\":\"SEARCH_QUERY_NO_RESULT\",\"details\":[],\"message\":\"The query did not yield any result\"},\"statusCode\":400}",
+   "t": 11575
+  },
+  {
+   "type": "company_done",
+   "index": 2,
+   "result": {
+    "stage": "passed_gate1",
+    "gate2": [],
+    "gate1": {
+     "questionId": "profile_fit",
+     "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+     "choice": "unknown",
+     "probability": 0.74,
+     "probabilities": {
+      "fit": 0.25,
+      "no_fit": 0.01,
+      "unknown": 0.74
+     }
+    },
+    "error": "Linkup HTTP 400: {\"error\":{\"code\":\"SEARCH_QUERY_NO_RESULT\",\"details\":[],\"message\":\"The query did not yield any result\"},\"statusCode\":400}",
+    "finalAction": "needs_human_review",
+    "company": {
+     "name": "Wattwin",
+     "website": "wattwin.com",
+     "city": "Barcelona",
+     "country": "Spain",
+     "employees": 36,
+     "sector": "Software / SaaS",
+     "description": "Provides SaaS tools for marketing, sales, after-sales, and e-commerce; the available information lists it among recently funded Barcelona SaaS startups but gives no headcount or funding date.",
+     "discoveredBy": "linkup",
+     "foundBy": [
+      "linkup"
+     ],
+     "employeesSource": "apollo",
+     "sources": [
+      {
+       "name": "51 Recently Funded SaaS Startups in Barcelona (October 2026) | VCBacked",
+       "url": "https://www.vcbacked.co/directory/cities/industry/barcelona-spain/saas",
+       "favicon": "https://favicons.linkup.so?domain=www.vcbacked.co"
+      }
+     ]
+    },
+    "enrichment": {
+     "source": "apollo",
+     "mode": "live",
+     "domain": "wattwin.com",
+     "matched": true,
+     "fetchedAt": "2026-11-11T06:51:35.990Z",
+     "fields": {
+      "name": "Wattwin",
+      "estimated_num_employees": 36,
+      "industry": "information technology & services",
+      "city": "Barcelona",
+      "country": "Spain",
+      "total_funding_printed": "3.5M",
+      "latest_funding_round_date": "2025-02-01T00:00:00.000+00:00",
+      "latest_funding_stage": "Venture (Round not Specified)",
+      "organization_headcount_six_month_growth": 0,
+      "organization_headcount_twelve_month_growth": -1,
+      "organization_headcount_twenty_four_month_growth": -1,
+      "funding_events": [
+       {
+        "date": "2025-02-01T00:00:00.000+00:00",
+        "type": "Venture (Round not Specified)",
+        "amount": "3M",
+        "currency": "€"
+       },
+       {
+        "date": "2022-10-01T00:00:00.000+00:00",
+        "type": "Debt Financing",
+        "amount": "200K",
+        "currency": "€"
+       }
+      ]
+     },
+     "location": {
+      "lat": 41.396731,
+      "lng": 2.153167,
+      "precision": "address",
+      "query": ""
+     }
+    },
+    "traces": {
+     "gate1": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 612,
+       "output_tokens": 40,
+       "cost": 0.000025704,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000025704,
+        "upstream_inference_prompt_cost": 0.000025704,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 462,
+      "at": "2026-11-11T06:51:35.355Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     }
+    }
+   },
+   "t": 11575
+  },
+  {
+   "type": "research_done",
+   "index": 4,
+   "evidence": {
+    "mode": "live",
+    "fields": {
+     "funding_last_12_months": "BIOM Bioinspired Materials: €2 million early-stage round; date not stated in the source. Dealroom News [21] and Spain’s ecosystem platform [23]. A separate source reports a €750,000 seed round in May 2025 [22], but the supplied information does not clarify whether it is the same or a different funding event. The company identity is ambiguous: other results concern unrelated companies named BIOM.",
+     "hiring_in_target_cities": "not stated. The supplied BIOM Bioinspired Materials information does not confirm open roles or hiring in Barcelona.",
+     "new_product_or_market": "not stated. The sources describe BIOM Bioinspired Materials’ Qsystem and Probio products as under development, but provide no confirmed launch or entry into a new market or country in the last 12 months [21, 23].",
+     "leadership_change": null,
+     "headcount": null
+    },
+    "sources": [],
+    "consulted": 79
+   },
+   "ms": 4680,
+   "t": 14574
+  },
+  {
+   "type": "decision_started",
+   "index": 4,
+   "step": "gate2",
+   "questions": [
+    "funding_recent",
+    "hiring_in_target_cities",
+    "new_product_or_market",
+    "leadership_change",
+    "headcount_growing_12m",
+    "headcount_in_range"
+   ],
+   "engine": "jev",
+   "t": 14575
+  },
+  {
+   "type": "gate2",
+   "index": 4,
+   "answers": [
+    {
+     "questionId": "funding_recent",
+     "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+     "choice": "unknown",
+     "probability": 0.76,
+     "probabilities": {
+      "yes": 0.2,
+      "no": 0.04,
+      "unknown": 0.76
+     }
+    },
+    {
+     "questionId": "hiring_in_target_cities",
+     "question": "According to the evidence, is the company hiring in one of the target cities?",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "new_product_or_market",
+     "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+     "choice": "unknown",
+     "probability": 0.53,
+     "probabilities": {
+      "yes": 0,
+      "no": 0.47,
+      "unknown": 0.53
+     }
+    },
+    {
+     "questionId": "leadership_change",
+     "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_growing_12m",
+     "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_in_range",
+     "question": "According to the evidence, does the company have between 3 and 50 employees?",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    }
+   ],
+   "signalStrength": "none",
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 1447,
+     "output_tokens": 239,
+     "cost": 0.000060774,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000060774,
+      "upstream_inference_prompt_cost": 0.000060774,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 265,
+    "at": "2026-11-11T06:51:46.957Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 14840
+  },
+  {
+   "type": "decision_started",
+   "index": 4,
+   "step": "action",
+   "questions": [
+    "next_action"
+   ],
+   "engine": "jev",
+   "t": 14840
+  },
+  {
+   "type": "action",
+   "index": 4,
+   "answer": {
+    "questionId": "next_action",
+    "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+    "choice": "nurture",
+    "probability": 0.54,
+    "probabilities": {
+     "discard": 0.4,
+     "call_now": 0,
+     "send_email": 0.01,
+     "linkedin_touch": 0.05,
+     "nurture": 0.54
+    }
+   },
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 1265,
+     "output_tokens": 60,
+     "cost": 0.00005313,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.00005313,
+      "upstream_inference_prompt_cost": 0.00005313,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 222,
+    "at": "2026-11-11T06:51:47.180Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 15063
+  },
+  {
+   "type": "routed",
+   "index": 4,
+   "routed": "review",
+   "finalAction": "needs_human_review",
+   "reason": "Top choice nurture at 54% < threshold 55%",
+   "t": 15064
+  },
+  {
+   "type": "company_done",
+   "index": 4,
+   "result": {
+    "stage": "review",
+    "gate2": [
+     {
+      "questionId": "funding_recent",
+      "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+      "choice": "unknown",
+      "probability": 0.76,
+      "probabilities": {
+       "yes": 0.2,
+       "no": 0.04,
+       "unknown": 0.76
+      }
+     },
+     {
+      "questionId": "hiring_in_target_cities",
+      "question": "According to the evidence, is the company hiring in one of the target cities?",
+      "choice": "unknown",
+      "probability": 1,
+      "probabilities": {
+       "yes": 0,
+       "no": 0,
+       "unknown": 1
+      }
+     },
+     {
+      "questionId": "new_product_or_market",
+      "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+      "choice": "unknown",
+      "probability": 0.53,
+      "probabilities": {
+       "yes": 0,
+       "no": 0.47,
+       "unknown": 0.53
+      }
+     },
+     {
+      "questionId": "leadership_change",
+      "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+      "choice": "unknown",
+      "probability": 1,
+      "probabilities": {
+       "yes": 0,
+       "no": 0,
+       "unknown": 1
+      }
+     },
+     {
+      "questionId": "headcount_growing_12m",
+      "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+      "choice": "unknown",
+      "probability": 1,
+      "probabilities": {
+       "yes": 0,
+       "no": 0,
+       "unknown": 1
+      }
+     },
+     {
+      "questionId": "headcount_in_range",
+      "question": "According to the evidence, does the company have between 3 and 50 employees?",
+      "choice": "unknown",
+      "probability": 1,
+      "probabilities": {
+       "yes": 0,
+       "no": 0,
+       "unknown": 1
+      }
+     }
+    ],
+    "gate1": {
+     "questionId": "profile_fit",
+     "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+     "choice": "unknown",
+     "probability": 0.85,
+     "probabilities": {
+      "fit": 0.15,
+      "no_fit": 0,
+      "unknown": 0.85
+     }
+    },
+    "signalStrength": "none",
+    "action": {
+     "questionId": "next_action",
+     "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+     "choice": "nurture",
+     "probability": 0.54,
+     "probabilities": {
+      "discard": 0.4,
+      "call_now": 0,
+      "send_email": 0.01,
+      "linkedin_touch": 0.05,
+      "nurture": 0.54
+     }
+    },
+    "finalAction": "needs_human_review",
+    "draft": "NURTURE: BIOM. Fits the profile, no current signal. Re-check in 3 months.\nKnown so far:\n- (no specific signal found)",
+    "company": {
+     "name": "BIOM",
+     "city": "Barcelona",
+     "sector": "Health Tech",
+     "discoveredBy": "cala",
+     "foundBy": [
+      "cala"
+     ]
+    },
+    "evidence": {
+     "mode": "live",
+     "fields": {
+      "funding_last_12_months": "BIOM Bioinspired Materials: €2 million early-stage round; date not stated in the source. Dealroom News [21] and Spain’s ecosystem platform [23]. A separate source reports a €750,000 seed round in May 2025 [22], but the supplied information does not clarify whether it is the same or a different funding event. The company identity is ambiguous: other results concern unrelated companies named BIOM.",
+      "hiring_in_target_cities": "not stated. The supplied BIOM Bioinspired Materials information does not confirm open roles or hiring in Barcelona.",
+      "new_product_or_market": "not stated. The sources describe BIOM Bioinspired Materials’ Qsystem and Probio products as under development, but provide no confirmed launch or entry into a new market or country in the last 12 months [21, 23].",
+      "leadership_change": null,
+      "headcount": null
+     },
+     "sources": [],
+     "consulted": 79
+    },
+    "traces": {
+     "gate1": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 574,
+       "output_tokens": 40,
+       "cost": 0.000024108,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000024108,
+        "upstream_inference_prompt_cost": 0.000024108,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 228,
+      "at": "2026-11-11T06:51:42.011Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     },
+     "gate2": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 1447,
+       "output_tokens": 239,
+       "cost": 0.000060774,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000060774,
+        "upstream_inference_prompt_cost": 0.000060774,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 265,
+      "at": "2026-11-11T06:51:46.957Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     },
+     "action": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 1265,
+       "output_tokens": 60,
+       "cost": 0.00005313,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.00005313,
+        "upstream_inference_prompt_cost": 0.00005313,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 222,
+      "at": "2026-11-11T06:51:47.180Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     }
+    }
+   },
+   "t": 15064
+  },
+  {
+   "type": "research_done",
+   "index": 5,
+   "evidence": {
+    "mode": "live",
+    "fields": {
+     "funding_last_12_months": "US$10.5 million (€9.4 million) seed round, announced October 29, 2026. Sources: [ALLOX](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline); [GlobeNewswire](https://www.globenewswire.com/news-release/2026/10/29/3390985/0/en/allox-closes-10-5m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline.html).",
+     "hiring_in_target_cities": "Barcelona: the company careers page invites spontaneous applications for roles across experimental, computational, and business teams; a Chief Scientific Officer role is also listed, with regular on-site work in Barcelona. Sources: [Spontaneous application](https://www.allox.bio/careers/spontaneous-application); [Chief Scientific Officer](https://www.allox.bio/careers/chief-scientific-officer).",
+     "new_product_or_market": "No distinct product launch or entry into a new market or country in the last 12 months was found in the available sources. The company describes platform and pipeline development, not a specific launch or market entry. Source: [ALLOX announcement](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline).",
+     "leadership_change": "Independent Chair of the Board appointed — October 29, 2026. Source: [ALLOX announcement](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline).",
+     "headcount": "Approximately 25 employees. Sources: [LinkedIn company profile](https://es.linkedin.com/company/allox-bio); [Tracxn](https://tracxn.com/d/companies/allox/__zYDFXaPubEOW0DM3wa1Nb8pvEYKg24INud3O0Bk6BJE)."
+    },
+    "sources": [
+     {
+      "name": "ALLOX closes $10.5M seed financing and appoints Morten Graugaard as Chair to scale allosteric drug discovery platform and build pipeline",
+      "url": "https://www.globenewswire.com/news-release/2026/10/29/3390985/0/en/allox-closes-10-5m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline.html",
+      "favicon": "https://favicons.linkup.so?domain=www.globenewswire.com"
+     },
+     {
+      "name": "ALLOX",
+      "url": "https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline",
+      "favicon": "https://favicons.linkup.so?domain=www.allox.bio"
+     },
+     {
+      "name": "ALLOX",
+      "url": "https://es.linkedin.com/company/allox-bio",
+      "favicon": "https://favicons.linkup.so?domain=es.linkedin.com"
+     },
+     {
+      "name": "ALLOX",
+      "url": "https://www.allox.bio/careers/spontaneous-application",
+      "favicon": "https://favicons.linkup.so?domain=www.allox.bio"
+     },
+     {
+      "name": "ALLOX",
+      "url": "https://www.allox.bio/careers/chief-scientific-officer",
+      "favicon": "https://favicons.linkup.so?domain=www.allox.bio"
+     },
+     {
+      "name": "ALLOX - 2026 Company Profile, Team, Funding & Competitors - Tracxn",
+      "url": "https://tracxn.com/d/companies/allox/__zYDFXaPubEOW0DM3wa1Nb8pvEYKg24INud3O0Bk6BJE",
+      "favicon": "https://favicons.linkup.so?domain=tracxn.com"
+     }
+    ],
+    "consulted": 61
+   },
+   "ms": 5427,
+   "t": 15761
+  },
+  {
+   "type": "decision_started",
+   "index": 5,
+   "step": "gate2",
+   "questions": [
+    "funding_recent",
+    "hiring_in_target_cities",
+    "new_product_or_market",
+    "leadership_change",
+    "headcount_growing_12m",
+    "headcount_in_range"
+   ],
+   "engine": "jev",
+   "t": 15761
+  },
+  {
+   "type": "gate2",
+   "index": 5,
+   "answers": [
+    {
+     "questionId": "funding_recent",
+     "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "hiring_in_target_cities",
+     "question": "According to the evidence, is the company hiring in one of the target cities?",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    },
+    {
+     "questionId": "new_product_or_market",
+     "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+     "choice": "no",
+     "probability": 0.99,
+     "probabilities": {
+      "yes": 0,
+      "no": 0.99,
+      "unknown": 0.01
+     }
+    },
+    {
+     "questionId": "leadership_change",
+     "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+     "choice": "yes",
+     "probability": 0.93,
+     "probabilities": {
+      "yes": 0.93,
+      "no": 0.04,
+      "unknown": 0.03
+     }
+    },
+    {
+     "questionId": "headcount_growing_12m",
+     "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+     "choice": "unknown",
+     "probability": 1,
+     "probabilities": {
+      "yes": 0,
+      "no": 0,
+      "unknown": 1
+     }
+    },
+    {
+     "questionId": "headcount_in_range",
+     "question": "According to the evidence, does the company have between 3 and 50 employees?",
+     "choice": "yes",
+     "probability": 1,
+     "probabilities": {
+      "yes": 1,
+      "no": 0,
+      "unknown": 0
+     }
+    }
+   ],
+   "signalStrength": "medium",
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 1788,
+     "output_tokens": 239,
+     "cost": 0.000075096,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000075096,
+      "upstream_inference_prompt_cost": 0.000075096,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 233,
+    "at": "2026-11-11T06:51:48.111Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 15994
+  },
+  {
+   "type": "decision_started",
+   "index": 5,
+   "step": "action",
+   "questions": [
+    "next_action"
+   ],
+   "engine": "jev",
+   "t": 15994
+  },
+  {
+   "type": "action",
+   "index": 5,
+   "answer": {
+    "questionId": "next_action",
+    "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+    "choice": "call_now",
+    "probability": 0.73,
+    "probabilities": {
+     "discard": 0.23,
+     "call_now": 0.73,
+     "send_email": 0.03,
+     "linkedin_touch": 0.01,
+     "nurture": 0
+    }
+   },
+   "trace": {
+    "mode": "live",
+    "engine": "jev",
+    "model": "typesafe/jev-1.14-20261014",
+    "route": "openrouter",
+    "usage": {
+     "input_tokens": 1606,
+     "output_tokens": 59,
+     "cost": 0.000067452,
+     "is_byok": false,
+     "cost_details": {
+      "upstream_inference_cost": 0.000067452,
+      "upstream_inference_prompt_cost": 0.000067452,
+      "upstream_inference_completions_cost": 0
+     }
+    },
+    "ms": 219,
+    "at": "2026-11-11T06:51:48.331Z",
+    "state": "",
+    "questions": {},
+    "answers": null,
+    "omitted": true
+   },
+   "t": 16214
+  },
+  {
+   "type": "routed",
+   "index": 5,
+   "routed": "actioned",
+   "finalAction": "call_now",
+   "reason": "Top choice call_now at 73% >= threshold 55%",
+   "t": 16214
+  },
+  {
+   "type": "company_done",
+   "index": 5,
+   "result": {
+    "stage": "actioned",
+    "gate2": [
+     {
+      "questionId": "funding_recent",
+      "question": "According to the evidence, did the company raise funding within the 12 months before the reference date? A round older than 12 months is no.",
+      "choice": "yes",
+      "probability": 1,
+      "probabilities": {
+       "yes": 1,
+       "no": 0,
+       "unknown": 0
+      }
+     },
+     {
+      "questionId": "hiring_in_target_cities",
+      "question": "According to the evidence, is the company hiring in one of the target cities?",
+      "choice": "yes",
+      "probability": 1,
+      "probabilities": {
+       "yes": 1,
+       "no": 0,
+       "unknown": 0
+      }
+     },
+     {
+      "questionId": "new_product_or_market",
+      "question": "According to the evidence, did the company launch a new product or enter a new market within the last 12 months?",
+      "choice": "no",
+      "probability": 0.99,
+      "probabilities": {
+       "yes": 0,
+       "no": 0.99,
+       "unknown": 0.01
+      }
+     },
+     {
+      "questionId": "leadership_change",
+      "question": "According to the evidence, did the company have a leadership change (a new CEO, country manager or head of a function) within the last 12 months?",
+      "choice": "yes",
+      "probability": 0.93,
+      "probabilities": {
+       "yes": 0.93,
+       "no": 0.04,
+       "unknown": 0.03
+      }
+     },
+     {
+      "questionId": "headcount_growing_12m",
+      "question": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+      "choice": "unknown",
+      "probability": 1,
+      "probabilities": {
+       "yes": 0,
+       "no": 0,
+       "unknown": 1
+      }
+     },
+     {
+      "questionId": "headcount_in_range",
+      "question": "According to the evidence, does the company have between 3 and 50 employees?",
+      "choice": "yes",
+      "probability": 1,
+      "probabilities": {
+       "yes": 1,
+       "no": 0,
+       "unknown": 0
+      }
+     }
+    ],
+    "gate1": {
+     "questionId": "profile_fit",
+     "question": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range, sector and buyer)? rule_check is a deterministic hint, not the answer.",
+     "choice": "unknown",
+     "probability": 0.79,
+     "probabilities": {
+      "fit": 0.21,
+      "no_fit": 0,
+      "unknown": 0.79
+     }
+    },
+    "signalStrength": "medium",
+    "action": {
+     "questionId": "next_action",
+     "question": "The seller offers B2B software that automates finance, HR and sales operations for small and mid-sized companies. Given the profile, the evidence and the factual answers, what should the sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+     "choice": "call_now",
+     "probability": 0.73,
+     "probabilities": {
+      "discard": 0.23,
+      "call_now": 0.73,
+      "send_email": 0.03,
+      "linkedin_touch": 0.01,
+      "nurture": 0
+     }
+    },
+    "finalAction": "call_now",
+    "draft": "CALL NOTES: Allox\nWhy now:\n- US$10.5 million (€9.4 million) seed round, announced October 29, 2026. Sources: [ALLOX](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline); [GlobeNewswire](https://www.globenewswire.com/news-release/2026/10/29/3390985/0/en/allox-closes-10-5m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline.html).\n- Barcelona: the company careers page invites spontaneous applications for roles across experimental, computational, and business teams; a Chief Scientific Officer role is also listed, with regular on-site work in Barcelona. Sources: [Spontaneous application](https://www.allox.bio/careers/spontaneous-application); [Chief Scientific Officer](https://www.allox.bio/careers/chief-scientific-officer).\n- Independent Chair of the Board appointed — October 29, 2026. Source: [ALLOX announcement](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline).\nOpening line: \"We saw that Allox is moving in Barcelona. We offer B2B software that automates finance, HR and sales operations for small and mid-sized companies, and teams in your situation usually need it now rather than in six months.\"\nAsk: what is changing for the team in Barcelona this quarter, and who decides on it.",
+    "company": {
+     "name": "Allox",
+     "city": "Barcelona",
+     "sector": "Health Tech / SaaS",
+     "discoveredBy": "cala",
+     "foundBy": [
+      "cala"
+     ]
+    },
+    "evidence": {
+     "mode": "live",
+     "fields": {
+      "funding_last_12_months": "US$10.5 million (€9.4 million) seed round, announced October 29, 2026. Sources: [ALLOX](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline); [GlobeNewswire](https://www.globenewswire.com/news-release/2026/10/29/3390985/0/en/allox-closes-10-5m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline.html).",
+      "hiring_in_target_cities": "Barcelona: the company careers page invites spontaneous applications for roles across experimental, computational, and business teams; a Chief Scientific Officer role is also listed, with regular on-site work in Barcelona. Sources: [Spontaneous application](https://www.allox.bio/careers/spontaneous-application); [Chief Scientific Officer](https://www.allox.bio/careers/chief-scientific-officer).",
+      "new_product_or_market": "No distinct product launch or entry into a new market or country in the last 12 months was found in the available sources. The company describes platform and pipeline development, not a specific launch or market entry. Source: [ALLOX announcement](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline).",
+      "leadership_change": "Independent Chair of the Board appointed — October 29, 2026. Source: [ALLOX announcement](https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline).",
+      "headcount": "Approximately 25 employees. Sources: [LinkedIn company profile](https://es.linkedin.com/company/allox-bio); [Tracxn](https://tracxn.com/d/companies/allox/__zYDFXaPubEOW0DM3wa1Nb8pvEYKg24INud3O0Bk6BJE)."
+     },
+     "sources": [
+      {
+       "name": "ALLOX closes $10.5M seed financing and appoints Morten Graugaard as Chair to scale allosteric drug discovery platform and build pipeline",
+       "url": "https://www.globenewswire.com/news-release/2026/10/29/3390985/0/en/allox-closes-10-5m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline.html",
+       "favicon": "https://favicons.linkup.so?domain=www.globenewswire.com"
+      },
+      {
+       "name": "ALLOX",
+       "url": "https://www.allox.bio/news/allox-closes-105m-seed-financing-and-appoints-morten-graugaard-as-chair-to-scale-allosteric-drug-discovery-platform-and-build-pipeline",
+       "favicon": "https://favicons.linkup.so?domain=www.allox.bio"
+      },
+      {
+       "name": "ALLOX",
+       "url": "https://es.linkedin.com/company/allox-bio",
+       "favicon": "https://favicons.linkup.so?domain=es.linkedin.com"
+      },
+      {
+       "name": "ALLOX",
+       "url": "https://www.allox.bio/careers/spontaneous-application",
+       "favicon": "https://favicons.linkup.so?domain=www.allox.bio"
+      },
+      {
+       "name": "ALLOX",
+       "url": "https://www.allox.bio/careers/chief-scientific-officer",
+       "favicon": "https://favicons.linkup.so?domain=www.allox.bio"
+      },
+      {
+       "name": "ALLOX - 2026 Company Profile, Team, Funding & Competitors - Tracxn",
+       "url": "https://tracxn.com/d/companies/allox/__zYDFXaPubEOW0DM3wa1Nb8pvEYKg24INud3O0Bk6BJE",
+       "favicon": "https://favicons.linkup.so?domain=tracxn.com"
+      }
+     ],
+     "consulted": 61
+    },
+    "traces": {
+     "gate1": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 577,
+       "output_tokens": 40,
+       "cost": 0.000024234,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000024234,
+        "upstream_inference_prompt_cost": 0.000024234,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 214,
+      "at": "2026-11-11T06:51:42.451Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     },
+     "gate2": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 1788,
+       "output_tokens": 239,
+       "cost": 0.000075096,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000075096,
+        "upstream_inference_prompt_cost": 0.000075096,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 233,
+      "at": "2026-11-11T06:51:48.111Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     },
+     "action": {
+      "mode": "live",
+      "engine": "jev",
+      "model": "typesafe/jev-1.14-20261014",
+      "route": "openrouter",
+      "usage": {
+       "input_tokens": 1606,
+       "output_tokens": 59,
+       "cost": 0.000067452,
+       "is_byok": false,
+       "cost_details": {
+        "upstream_inference_cost": 0.000067452,
+        "upstream_inference_prompt_cost": 0.000067452,
+        "upstream_inference_completions_cost": 0
+       }
+      },
+      "ms": 219,
+      "at": "2026-11-11T06:51:48.331Z",
+      "state": "",
+      "questions": {},
+      "answers": null,
+      "omitted": true
+     }
+    }
+   },
+   "t": 16214
+  }
+ ]
+}

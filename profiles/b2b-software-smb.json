@@ -1,0 +1,13 @@
+{
+  "id": "b2b-software-smb",
+  "name": "B2B software for SMBs",
+  "description": "A business tool (finance, HR or sales) for small and mid-sized companies.",
+  "offer": "B2B software that automates finance, HR and sales operations for small and mid-sized companies",
+  "buyer": "small and mid-sized companies whose operations outgrow spreadsheets as they scale",
+  "cities": ["Barcelona"],
+  "cityCoordinates": { "Barcelona": { "lat": 41.3874, "lng": 2.1686 } },
+  "sizeRange": { "min": 20, "max": 300 },
+  "sectors": ["software", "saas", "fintech", "e-commerce", "health tech", "logistics", "professional services", "travel tech"],
+  "signals": ["funding_recent", "hiring_in_target_cities", "new_product_or_market", "leadership_change", "headcount_growing_12m"],
+  "reviewThreshold": 0.55
+}

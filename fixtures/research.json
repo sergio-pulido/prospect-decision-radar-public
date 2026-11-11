@@ -1,0 +1,128 @@
+{
+  "Lumora Analytics (fixture)": {
+    "fields": {
+      "funding_last_12_months": "Raised a 6M Series A in the last 12 months.",
+      "hiring_in_target_cities": "Hiring 8 engineers and 3 sales roles in Barcelona.",
+      "office_or_expansion": "Announced a new office in Barcelona for Q1.",
+      "work_policy": "Hybrid, three days in the office.",
+      "current_office": "Currently in a coworking space in Poblenou.",
+      "headcount": "About 45 employees.",
+      "growth": "Headcount grew 50% this year."
+    },
+    "sources": [
+      { "name": "Fixture: funding note", "url": "https://example.com/fixture/lumora-funding" },
+      { "name": "Fixture: careers page", "url": "https://example.com/fixture/lumora-careers" }
+    ]
+  },
+  "Pinheiro Pay (fixture)": {
+    "fields": {
+      "funding_last_12_months": "Raised a 20M Series B this year.",
+      "hiring_in_target_cities": "Hiring 25 roles in São Paulo.",
+      "office_or_expansion": "Expanding the São Paulo team to a second floor.",
+      "work_policy": "Hybrid policy.",
+      "current_office": "Own office lease ends next year; considering flexible space.",
+      "headcount": "About 120 employees.",
+      "growth": "Growing fast after the round."
+    },
+    "sources": [
+      { "name": "Fixture: press release", "url": "https://example.com/fixture/pinheiro-press" }
+    ]
+  },
+  "Mosaico Digital (fixture)": {
+    "fields": {
+      "funding_last_12_months": "Bootstrapped, no recent funding.",
+      "hiring_in_target_cities": "Hiring 4 designers in São Paulo.",
+      "office_or_expansion": null,
+      "work_policy": "Hybrid, two days a week.",
+      "current_office": "Works from a coworking space in Pinheiros.",
+      "headcount": "About 25 employees.",
+      "growth": null
+    },
+    "sources": [
+      { "name": "Fixture: agency site", "url": "https://example.com/fixture/mosaico" }
+    ]
+  },
+  "Ribeira Health (fixture)": {
+    "fields": {
+      "funding_last_12_months": null,
+      "hiring_in_target_cities": "Recruiting 2 support roles in Barcelona.",
+      "office_or_expansion": "No announced expansion.",
+      "work_policy": "Office-first culture.",
+      "current_office": "Leased office in Eixample.",
+      "headcount": "About 150 employees.",
+      "growth": null
+    },
+    "sources": [
+      { "name": "Fixture: job board", "url": "https://example.com/fixture/ribeira-jobs" }
+    ]
+  },
+  "Tramuntana Labs (fixture)": {
+    "fields": {
+      "funding_last_12_months": "Raised a 2M seed round.",
+      "hiring_in_target_cities": "Not hiring in Barcelona; hires anywhere in Europe.",
+      "office_or_expansion": null,
+      "work_policy": "Fully remote company.",
+      "current_office": "No physical office.",
+      "headcount": "About 12 employees.",
+      "growth": null
+    },
+    "sources": [
+      { "name": "Fixture: about page", "url": "https://example.com/fixture/tramuntana" }
+    ]
+  },
+  "Nexo Bio (fixture)": {
+    "fields": {
+      "funding_last_12_months": null,
+      "hiring_in_target_cities": null,
+      "office_or_expansion": null,
+      "work_policy": null,
+      "current_office": null,
+      "headcount": null,
+      "growth": "Early-stage, growing research team."
+    },
+    "sources": []
+  },
+  "Garoa Games (fixture)": {
+    "fields": {
+      "funding_last_12_months": "Raised a seed round from a games fund.",
+      "hiring_in_target_cities": "Hiring 6 artists in São Paulo.",
+      "office_or_expansion": null,
+      "work_policy": null,
+      "current_office": "No local office yet; team meets in cafés.",
+      "headcount": "About 70 employees.",
+      "growth": null
+    },
+    "sources": [
+      { "name": "Fixture: studio blog", "url": "https://example.com/fixture/garoa" }
+    ]
+  },
+  "Rambla Legal (fixture)": {
+    "fields": {
+      "funding_last_12_months": "No disclosed funding.",
+      "hiring_in_target_cities": "No open roles.",
+      "office_or_expansion": "No announced expansion.",
+      "work_policy": "Office-first.",
+      "current_office": "Own office near Plaça Catalunya.",
+      "headcount": "About 30 employees.",
+      "growth": "Flat headcount."
+    },
+    "sources": [
+      { "name": "Fixture: company site", "url": "https://example.com/fixture/rambla" }
+    ]
+  },
+  "Paulista Insure (fixture)": {
+    "fields": {
+      "funding_last_12_months": "Raised a 9M Series A.",
+      "hiring_in_target_cities": "Hiring 10 engineers in São Paulo.",
+      "office_or_expansion": "Opening a São Paulo hub next quarter.",
+      "work_policy": "Hybrid.",
+      "current_office": "Serviced office on Avenida Paulista.",
+      "headcount": "About 55 employees.",
+      "growth": "Headcount doubled in 12 months."
+    },
+    "sources": [
+      { "name": "Fixture: funding note", "url": "https://example.com/fixture/paulista-funding" },
+      { "name": "Fixture: careers page", "url": "https://example.com/fixture/paulista-careers" }
+    ]
+  }
+}

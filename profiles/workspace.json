@@ -1,0 +1,13 @@
+{
+  "id": "workspace",
+  "name": "Flexible workspace",
+  "description": "Offices and desks on flexible terms, for teams that are growing.",
+  "offer": "flexible workspace (private offices, dedicated desks and meeting rooms) on monthly terms",
+  "buyer": "growing companies with a team in the city that need space without a long lease",
+  "cities": ["São Paulo", "Barcelona"],
+  "cityCoordinates": { "São Paulo": { "lat": -23.5505, "lng": -46.6333 }, "Barcelona": { "lat": 41.3874, "lng": 2.1686 } },
+  "sizeRange": { "min": 10, "max": 200 },
+  "sectors": ["software", "saas", "fintech", "insurtech", "legaltech", "health tech", "digital agency", "consulting", "gaming", "life sciences", "e-commerce"],
+  "signals": ["funding_recent", "hiring_in_target_cities", "expansion_or_new_office", "work_policy_hybrid", "headcount_growing_12m"],
+  "reviewThreshold": 0.55
+}

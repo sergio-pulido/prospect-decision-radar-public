@@ -1,0 +1,364 @@
+{
+  "id": "legacy-explicit",
+  "name": "Legacy explicit profile",
+  "description": "An explicit profile in the older format (questions written by hand). Kept to prove old profiles still load.",
+  "headline": "Know who needs space next.",
+  "tagline": "Find companies that are about to need workspace, and know who to contact first.",
+  "offer": "the workspace operator: flexible workspace (private offices, dedicated desks, meeting rooms) on flexible terms in São Paulo and Barcelona.",
+  "cities": [
+    "São Paulo",
+    "Barcelona"
+  ],
+  "cityCoordinates": {
+    "São Paulo": {
+      "lat": -23.5505,
+      "lng": -46.6333
+    },
+    "Barcelona": {
+      "lat": 41.3874,
+      "lng": 2.1686
+    }
+  },
+  "sizeRange": {
+    "min": 10,
+    "max": 200
+  },
+  "sectors": [
+    "software",
+    "saas",
+    "fintech",
+    "insurtech",
+    "legaltech",
+    "health tech",
+    "digital agency",
+    "consulting",
+    "gaming",
+    "life sciences",
+    "e-commerce"
+  ],
+  "discovery": {
+    "linkupQuery": "List up to {n} real companies with an office or team in {city} with roughly {min}-{max} employees, in these sectors: {sectors}. Prefer companies that raised funding, are hiring or are expanding in {city} in the last 12 months. Company-level information only, no people.",
+    "calaQuery": "Companies headquartered or with an office in {city}, between {min} and {max} employees, in sectors {sectors}, that raised funding in the last 12 months. Return name, website, city, employees, sector.",
+    "maxPerCity": {
+      "cala": 4,
+      "linkup": 2
+    }
+  },
+  "gate1": {
+    "id": "profile_fit",
+    "instructions": "Using only the cheap company data, does this company plausibly fit the prospect profile (target city, size range and sector)? rule_check is a deterministic hint, not the answer.",
+    "options": {
+      "fit": {
+        "description": "Matches city, size and sector, or clearly close enough to research.",
+        "fixtureMatch": "rule_check: fit"
+      },
+      "no_fit": {
+        "description": "Clearly outside the target city, size range or sector.",
+        "fixtureMatch": "rule_check: no_fit"
+      },
+      "unknown": {
+        "description": "Not enough data to tell; worth a cheap research pass."
+      }
+    },
+    "plain": {
+      "fit": "Fits your profile",
+      "no_fit": "Outside your cities, team size or sectors",
+      "unknown": "Not enough information to tell"
+    }
+  },
+  "gate1Drop": [
+    "no_fit"
+  ],
+  "research": {
+    "queryTemplate": "Research the company {company} ({website}). Report only company-level facts with sources, no individual people: funding raised in the last 12 months; job openings in {cities}; any new office, opening or expansion in {cities}; its work policy (hybrid, remote or office-first); its current office situation in {cities} (own office, coworking or flexible space, or no local office); approximate headcount; and whether headcount is growing.",
+    "fields": [
+      {
+        "id": "funding_last_12_months",
+        "description": "Funding raised in the last 12 months: amount, round, date."
+      },
+      {
+        "id": "hiring_in_target_cities",
+        "description": "Open roles or hiring activity in the target cities."
+      },
+      {
+        "id": "office_or_expansion",
+        "description": "New office, opening or expansion in the target cities."
+      },
+      {
+        "id": "work_policy",
+        "description": "Stated work policy: hybrid, fully remote or office-first."
+      },
+      {
+        "id": "current_office",
+        "description": "Current office situation in the target cities: own office, coworking or flexible space, or no local office."
+      },
+      {
+        "id": "headcount",
+        "description": "Approximate number of employees."
+      },
+      {
+        "id": "growth",
+        "description": "Whether headcount or the business is growing or shrinking."
+      }
+    ]
+  },
+  "gate2": [
+    {
+      "id": "funding_recent",
+      "evidenceField": "funding_last_12_months",
+      "instructions": "According to the evidence, did the company raise funding in the last 12 months?",
+      "positive": [
+        "yes"
+      ],
+      "options": {
+        "yes": {
+          "description": "Evidence states a funding round in the last 12 months.",
+          "fixtureMatch": "(?<!no )(raised|series [a-e]|seed round|funding round)"
+        },
+        "no": {
+          "description": "Evidence states no recent funding or a last round older than 12 months.",
+          "fixtureMatch": "no (recent |disclosed )?funding|bootstrapped"
+        },
+        "unknown": {
+          "description": "Not stated in the evidence."
+        }
+      },
+      "plain": {
+        "yes": "Raised funding recently",
+        "no": "No recent funding found",
+        "unknown": "Funding unknown"
+      }
+    },
+    {
+      "id": "hiring_target_city",
+      "evidenceField": "hiring_in_target_cities",
+      "instructions": "According to the evidence, is the company hiring in one of the target cities?",
+      "positive": [
+        "yes"
+      ],
+      "options": {
+        "yes": {
+          "description": "Evidence shows open roles or active hiring in a target city.",
+          "fixtureMatch": "(?<!(not|no) )(hiring|open roles|recruiting)"
+        },
+        "no": {
+          "description": "Evidence says no hiring there, or hiring only elsewhere.",
+          "fixtureMatch": "not hiring|no open roles|hiring freeze"
+        },
+        "unknown": {
+          "description": "Not stated in the evidence."
+        }
+      },
+      "plain": {
+        "yes": "Hiring in {city}",
+        "no": "Not hiring in {city}",
+        "unknown": "Hiring in {city} unknown"
+      }
+    },
+    {
+      "id": "expansion_target_city",
+      "evidenceField": "office_or_expansion",
+      "instructions": "According to the evidence, is the company opening or expanding an office in a target city?",
+      "positive": [
+        "yes"
+      ],
+      "options": {
+        "yes": {
+          "description": "Evidence describes a new office, opening or expansion in a target city.",
+          "fixtureMatch": "(?<!no (announced )?)(new office|opening|expan|relocat)"
+        },
+        "no": {
+          "description": "Evidence says no expansion there.",
+          "fixtureMatch": "no (announced )?(expansion|new office)"
+        },
+        "unknown": {
+          "description": "Not stated in the evidence."
+        }
+      },
+      "plain": {
+        "yes": "Opening or expanding an office in {city}",
+        "no": "No new office in {city}",
+        "unknown": "Office expansion unknown"
+      }
+    },
+    {
+      "id": "work_policy",
+      "evidenceField": "work_policy",
+      "instructions": "According to the evidence, what is the company's work policy?",
+      "positive": [
+        "hybrid"
+      ],
+      "options": {
+        "hybrid": {
+          "description": "Hybrid: some days in an office, some remote.",
+          "fixtureMatch": "hybrid"
+        },
+        "fully_remote": {
+          "description": "Fully remote or remote-first with no office use.",
+          "fixtureMatch": "fully remote|remote-first|remote first"
+        },
+        "office_first": {
+          "description": "Office-first, most days in the office.",
+          "fixtureMatch": "office-first|in-office|five days"
+        },
+        "unknown": {
+          "description": "Not stated in the evidence."
+        }
+      },
+      "plain": {
+        "hybrid": "Works hybrid",
+        "fully_remote": "Fully remote",
+        "office_first": "Office-first",
+        "unknown": "Work policy unknown"
+      }
+    },
+    {
+      "id": "office_situation",
+      "evidenceField": "current_office",
+      "instructions": "According to the evidence, what is the company's current office situation in the target cities?",
+      "positive": [
+        "flexible_or_coworking",
+        "no_local_office"
+      ],
+      "options": {
+        "flexible_or_coworking": {
+          "description": "Uses coworking, serviced or flexible space.",
+          "fixtureMatch": "cowork|flexible|serviced"
+        },
+        "own_office": {
+          "description": "Has its own leased or owned office.",
+          "fixtureMatch": "own office|leased office|headquarters building"
+        },
+        "no_local_office": {
+          "description": "Has no office in the target city yet.",
+          "fixtureMatch": "no (local |physical )?office"
+        },
+        "unknown": {
+          "description": "Not stated in the evidence."
+        }
+      },
+      "plain": {
+        "flexible_or_coworking": "Already uses flexible space",
+        "own_office": "Has its own office",
+        "no_local_office": "No local office yet",
+        "unknown": "Office situation unknown"
+      }
+    },
+    {
+      "id": "headcount_in_range",
+      "evidenceField": "headcount",
+      "instructions": "According to the evidence, does the company have between 10 and 200 employees?",
+      "options": {
+        "yes": {
+          "description": "Headcount is between 10 and 200.",
+          "fixtureMatch": "\\b(1\\d|[2-9]\\d|1\\d\\d|200) (employees|people|staff)"
+        },
+        "no": {
+          "description": "Headcount is below 10 or above 200.",
+          "fixtureMatch": "\\b([1-9]|[2-9]\\d\\d|\\d{4,}) (employees|people|staff)"
+        },
+        "unknown": {
+          "description": "Not stated in the evidence."
+        }
+      },
+      "plain": {
+        "yes": "Right team size",
+        "no": "Team size outside your range",
+        "unknown": "Team size unknown"
+      }
+    },
+    {
+      "id": "growing",
+      "evidenceField": "growth",
+      "instructions": "According to the evidence, is the company growing (headcount or business)?",
+      "positive": [
+        "yes"
+      ],
+      "options": {
+        "yes": {
+          "description": "Evidence shows growth.",
+          "fixtureMatch": "(?<!no )(grew|growing|doubled|growth)"
+        },
+        "no": {
+          "description": "Evidence shows flat headcount, shrinking or layoffs.",
+          "fixtureMatch": "layoffs|shrink|downsiz|flat headcount|no growth"
+        },
+        "unknown": {
+          "description": "Not stated in the evidence."
+        }
+      },
+      "plain": {
+        "yes": "Growing",
+        "no": "Not growing",
+        "unknown": "Growth unknown"
+      }
+    },
+    {
+      "id": "headcount_growing_12m",
+      "instructions": "Using ONLY the apollo_headcount_growth_12m line in the 'Company data (Apollo)' block, did the company's headcount grow over the last 12 months? If that line is absent, answer unknown.",
+      "evidenceField": "apollo_headcount_growth_12m",
+      "positive": [
+        "yes"
+      ],
+      "options": {
+        "yes": {
+          "description": "Headcount grew over the last 12 months.",
+          "fixtureMatch": "grew"
+        },
+        "no": {
+          "description": "Headcount stayed flat or shrank over the last 12 months.",
+          "fixtureMatch": "shrank"
+        },
+        "unknown": {
+          "description": "No company headcount data for the last 12 months."
+        }
+      },
+      "plain": {
+        "yes": "Team grew in the last year",
+        "no": "Team did not grow in the last year",
+        "unknown": "Team growth unknown"
+      }
+    }
+  ],
+  "action": {
+    "id": "next_action",
+    "instructions": "Given the profile, the evidence and the factual answers, what should the the workspace operator sales team do next with this company? Choose call_now only with strong, recent, sourced signals in a target city.",
+    "options": {
+      "discard": {
+        "description": "Not a prospect: fully remote with no office need, or clearly outside the profile.",
+        "fixtureMatch": "=> fully_remote"
+      },
+      "call_now": {
+        "description": "Strong, recent signals (funding plus hiring or expansion in a target city): call this week.",
+        "fixtureMatch": "signal_strength: strong"
+      },
+      "send_email": {
+        "description": "Clear signals but not urgent: send a tailored email.",
+        "fixtureMatch": "signal_strength: medium"
+      },
+      "linkedin_touch": {
+        "description": "One or two weak signals: a light LinkedIn touch on the company page or a company post.",
+        "fixtureMatch": "signal_strength: weak"
+      },
+      "nurture": {
+        "description": "Fits the profile but no current signal: add to a nurture list and re-check in 3 months.",
+        "fixtureMatch": "signal_strength: none"
+      }
+    },
+    "plain": {
+      "call_now": "Strong, recent signs they will need space soon.",
+      "send_email": "Clear signs, but not urgent: a short email fits.",
+      "linkedin_touch": "A couple of weak signs: a light touch is enough.",
+      "nurture": "Fits your profile, but nothing is happening right now.",
+      "discard": "Not a prospect for you right now."
+    }
+  },
+  "reviewThreshold": 0.55,
+  "draftTemplates": {
+    "call_now": "CALL NOTES: {company}\nWhy now:\n{signals}\nOpening line: \"We saw {company} is growing in {city}. the workspace operator can have a private office ready for your team in days, on flexible terms, so you don't sign a long lease while you scale.\"\nAsk: team size in {city} over the next 6 months, and the date they need space.",
+    "send_email": "Subject: Space for {company}'s team in {city}\n\nHi {company} team,\n\nWe noticed:\n{signals}\n\nthe workspace operator offers private offices and dedicated desks in {city} on flexible terms, so you can add desks as you hire without a long lease. Would a 20-minute visit next week be useful?\n\nBest,\nthe workspace operator",
+    "linkedin_touch": "LinkedIn (company page): congratulate {company} on recent news ({signals}) and mention that the workspace operator hosts growing teams in {city} on flexible terms. No hard ask.",
+    "nurture": "NURTURE: {company}. Fits the profile, no current signal. Re-check in 3 months.\nKnown so far:\n{signals}",
+    "discard": "DISCARD: {company}. Reason from evidence:\n{signals}"
+  }
+}

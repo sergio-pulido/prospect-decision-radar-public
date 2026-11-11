@@ -1,0 +1,13 @@
+{
+  "id": "recruiting-services",
+  "name": "Recruiting services",
+  "description": "Hiring help for companies that need to fill roles fast.",
+  "offer": "recruiting services that fill technical and commercial roles within weeks",
+  "buyer": "companies scaling a local team faster than their in-house recruiters can hire",
+  "cities": ["Barcelona", "Madrid"],
+  "cityCoordinates": { "Barcelona": { "lat": 41.3874, "lng": 2.1686 }, "Madrid": { "lat": 40.4168, "lng": -3.7038 } },
+  "sizeRange": { "min": 30, "max": 500 },
+  "sectors": ["software", "saas", "fintech", "health tech", "e-commerce", "gaming", "mobility"],
+  "signals": ["hiring_in_target_cities", "funding_recent", "expansion_or_new_office", "leadership_change", "headcount_growing_12m"],
+  "reviewThreshold": 0.55
+}

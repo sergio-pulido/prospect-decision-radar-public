@@ -1,0 +1,13 @@
+{
+  "id": "outdoor-advertising-media",
+  "name": "Outdoor advertising",
+  "description": "Billboards, transit and digital screens for brands entering or growing in a city.",
+  "offer": "outdoor advertising (billboards, transit and digital screens) across the city",
+  "buyer": "consumer-facing brands launching or growing in the city",
+  "cities": ["São Paulo", "Barcelona"],
+  "cityCoordinates": { "São Paulo": { "lat": -23.5505, "lng": -46.6333 }, "Barcelona": { "lat": 41.3874, "lng": 2.1686 } },
+  "sizeRange": { "min": 20, "max": 2000 },
+  "sectors": ["consumer apps", "e-commerce", "food delivery", "mobility", "fintech", "retail", "travel"],
+  "signals": ["new_product_or_market", "funding_recent", "expansion_or_new_office", "hiring_in_target_cities"],
+  "reviewThreshold": 0.55
+}

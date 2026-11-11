@@ -1,0 +1,14 @@
+[
+  { "name": "Lumora Analytics (fixture)", "website": "https://example.com/lumora", "city": "Barcelona", "country": "Spain", "employees": 45, "sector": "software", "description": "Fictional B2B analytics SaaS." },
+  { "name": "Pinheiro Pay (fixture)", "website": "https://example.com/pinheiro", "city": "São Paulo", "country": "Brazil", "employees": 120, "sector": "fintech", "description": "Fictional payments platform for SMEs." },
+  { "name": "Costa Robotics (fixture)", "website": "https://example.com/costa", "city": "Barcelona", "country": "Spain", "employees": 80, "sector": "industrial robotics", "description": "Fictional warehouse robotics maker." },
+  { "name": "Verdeluz Energy (fixture)", "website": "https://example.com/verdeluz", "city": "Madrid", "country": "Spain", "employees": 60, "sector": "software", "description": "Fictional energy software company." },
+  { "name": "Mosaico Digital (fixture)", "website": "https://example.com/mosaico", "city": "São Paulo", "country": "Brazil", "employees": 25, "sector": "digital agency", "description": "Fictional digital product agency." },
+  { "name": "Ribeira Health (fixture)", "website": "https://example.com/ribeira", "city": "Barcelona", "country": "Spain", "employees": 150, "sector": "health tech", "description": "Fictional clinic-management software." },
+  { "name": "Tramuntana Labs (fixture)", "website": "https://example.com/tramuntana", "city": "Barcelona", "country": "Spain", "employees": 12, "sector": "software", "description": "Fictional developer-tools startup." },
+  { "name": "Ipanema Logistics Tech (fixture)", "website": "https://example.com/ipanema", "city": "São Paulo", "country": "Brazil", "employees": 900, "sector": "software", "description": "Fictional logistics software scale-up." },
+  { "name": "Nexo Bio (fixture)", "website": "https://example.com/nexo", "city": "Barcelona", "country": "Spain", "sector": "life sciences", "description": "Fictional biotech spin-off." },
+  { "name": "Garoa Games (fixture)", "website": "https://example.com/garoa", "city": "São Paulo", "country": "Brazil", "employees": 70, "sector": "gaming", "description": "Fictional mobile game studio." },
+  { "name": "Rambla Legal (fixture)", "website": "https://example.com/rambla", "city": "Barcelona", "country": "Spain", "employees": 30, "sector": "legaltech", "description": "Fictional contract-review software." },
+  { "name": "Paulista Insure (fixture)", "website": "https://example.com/paulista", "city": "São Paulo", "country": "Brazil", "employees": 55, "sector": "insurtech", "description": "Fictional embedded-insurance API." }
+]

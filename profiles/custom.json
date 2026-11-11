@@ -1,0 +1,27 @@
+{
+  "id": "custom",
+  "name": "Something else",
+  "description": "Start from a blank profile: describe your offer, your buyer and the signals.",
+  "offer": "",
+  "buyer": "",
+  "cities": [
+    "Barcelona"
+  ],
+  "cityCoordinates": {
+    "Barcelona": {
+      "lat": 41.3874,
+      "lng": 2.1686
+    }
+  },
+  "sizeRange": {
+    "min": 10,
+    "max": 500
+  },
+  "sectors": [],
+  "signals": [
+    "funding_recent",
+    "hiring_in_target_cities",
+    "expansion_or_new_office"
+  ],
+  "reviewThreshold": 0.55
+}
